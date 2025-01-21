@@ -29,7 +29,11 @@ const Navbar = () => {
             : "text-black text-xl md:text-lg"
         }
       >
-        <li className="">Home</li>
+        <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          Home
+          {/* Custom underline */}
+          <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+        </li>
       </NavLink>
       <NavLink
         to={"/portfolio"}
@@ -39,7 +43,10 @@ const Navbar = () => {
             : "text-black text-xl md:text-lg"
         }
       >
-        <li className="">PortFolio </li>
+        <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          PortFolio {/* Custom underline */}
+          <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+        </li>
       </NavLink>
       <NavLink
         to={"/dashboard"}
@@ -49,7 +56,10 @@ const Navbar = () => {
             : "text-black text-xl md:text-lg"
         }
       >
-        <li className="">Dashboard</li>
+        <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          Dashboard {/* Custom underline */}
+          <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+        </li>
       </NavLink>
       <NavLink
         to={"/contact-us"}
@@ -59,7 +69,10 @@ const Navbar = () => {
             : "text-black text-xl md:text-lg"
         }
       >
-        <li className="">Contact Us</li>
+        <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          Contact Us {/* Custom underline */}
+          <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+        </li>
       </NavLink>
       <NavLink
         to={"/about-us"}
@@ -69,7 +82,10 @@ const Navbar = () => {
             : "text-black text-xl md:text-lg"
         }
       >
-        <li className="">About Us</li>
+        <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          About Us {/* Custom underline */}
+          <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+        </li>
       </NavLink>
     </>
   );
