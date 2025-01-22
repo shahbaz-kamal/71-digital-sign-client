@@ -1,43 +1,45 @@
 import React from "react";
-import banner1 from "../../assets/printing-invoices.gif";
-import banner2 from "../../assets/printing-invoices-amico.png";
-import banner3 from "../../assets/photocopy.gif";
-import banner4 from "../../assets/designer-girl-cuate.png";
+import banner1 from "../../assets/hero_image_1.png";
+import banner2 from "../../assets/hero_image_2.png";
+import banner3 from "../../assets/hero_image_3.png";
+import banner4 from "../../assets/hero_image_4.png";
+import heroImage from "../../assets/hero_collapsed_bg_removed.png";
+import "./Banner.css";
 
 const Banner = () => {
   return (
-    <div className="flex flex-col-reverse md:flex-row md:items-center justify-between">
+    <div
+      id="banner"
+      className="flex flex-col-reverse md:flex-row md:items-center justify-between min-h-[75vh] px-5 md:px-10 bg-neutral bg-opacity-80 rounded-lg"
+    >
       {/* text  */}
-      <div className="w-1/2 flex flex-col gap-5">
-        <p class="text-secondary font-medium text-lg">
+      <div className="w-full md:w-1/2 flex flex-col gap-5 items-center md:items-start">
+        <p data-aos="fade-right" class="text-secondary font-medium text-lg md:text-xl ">
           100% Satisfaction Guaranteed
         </p>
-        <h1 class="text-2xl md:text-5xl font-bold font-play">
-          Welcome to <span className="text-primary">71 Digital Sign</span>
+        <h1
+          data-aos="fade-right"
+          class="text-2xl md:text-5xl font-bold font-play text-white"
+        >
+          Welcome to <span className="text-light-accent font-extrabold">71 Digital Sign</span>
         </h1>
-        <p class="text-color-text text-lg max-w-[80%]">
+        <p data-aos="fade-right" class="text-white text-lg max-w-[80%] text-center md:text-start">
           We provide high-quality design and printing services for your banners,
           crests, visiting cards, and more. Let's bring your ideas to life!
         </p>
-        <div>
-          <button className=" text-base md:text-lg py-2 border border-primary rounded-xl px-5 hover:bg-primary hover:text-white transition duration-300 ease-in-out font-semibold ">
+        <div data-aos="fade-right">
+          <button className=" text-base md:text-lg py-2 border border-primary rounded-xl px-5 hover:bg-primary text-white transition duration-300 ease-in-out font-semibold ">
             Get Started
           </button>
         </div>
       </div>
       {/* hero image */}
-      <div className="grid grid-cols-2 w-1/2 gap-6">
-        <div className="w-64">
-          <img className="w-full " src={banner1} alt="" />
-        </div>
-        <div className="w-64">
-          <img className="w-full " src={banner2} alt="" />
-        </div>
-        <div className="w-64">
-          <img className="w-full " src={banner3} alt="" />
-        </div>
-        <div className="w-64">
-          <img className="w-full " src={banner4} alt="" />
+      <div
+        data-aos="fade-left"
+        className="grid grid-cols-1 w-full md:w-1/2 gap-6"
+      >
+        <div className="w-[80%] mx-auto">
+          <img src={heroImage} alt="" />
         </div>
       </div>
     </div>

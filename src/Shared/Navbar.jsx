@@ -89,14 +89,14 @@ const Navbar = () => {
   return (
     <div className="">
       {/* first div */}
-      <div className="bg-primary  bg-opacity-15 py-2 fixed top-0 z-50 w-full">
+      <div className="bg-primary backdrop-blur-xl  bg-opacity-40 py-2 fixed top-0 z-50 w-full">
         <nav className="flex w-11/12 md:w-10/12 mx-auto items-center justify-between">
           {/* logo */}
           <div className="flex items-center gap-3">
             <div className="w-12 md:w-14 ">
               <img className="w-full h-full object-cover" src={logo2} alt="" />
             </div>
-            <h3 className="font-bold text-3xl uppercase hidden md:inline-flex">
+            <h3 className="font-bold text-white text-3xl uppercase hidden md:inline-flex">
               71 Digital Sign
             </h3>
           </div>

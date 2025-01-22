@@ -1,0 +1,6 @@
+#banner {
+  background-image: url("../../assets/banner_bg_2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: overlay;
+}
