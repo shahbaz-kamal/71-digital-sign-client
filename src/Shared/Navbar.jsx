@@ -16,9 +16,6 @@ const Navbar = () => {
     setShowMobileNavItems(false);
   };
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
   const links = (
     <>
       <NavLink
@@ -92,7 +89,7 @@ const Navbar = () => {
   return (
     <div className="">
       {/* first div */}
-      <div className="bg-primary bg-opacity-15 py-2 fixed top-0 z-50 w-full">
+      <div className="bg-primary  bg-opacity-15 py-2 fixed top-0 z-50 w-full">
         <nav className="flex w-11/12 md:w-10/12 mx-auto items-center justify-between">
           {/* logo */}
           <div className="flex items-center gap-3">
