@@ -2,20 +2,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SocialLogin from "../../Shared/SocialLogin";
 import Headline from "../../Shared/Headline";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
-    const handleSubmit=e=>{
-        e.preventDefault();
-        const name=e.target.name.value;
-        const email=e.target.email.value;
-        const bankAccount=e.target.bankAccount.value;
-        const salary=e.target.salary.value;
-        const designation=e.target.designation.value;
-        const role=e.target.role.value;
-        const photo=e.target.photo.value;
-        const newUser={name,email,bankAccount,salary,designation,role,photo}
-        console.log(newUser)
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const bankAccount = e.target.bankAccount.value;
+    const salary = e.target.salary.value;
+    const designation = e.target.designation.value;
+    const role = e.target.role.value;
+    const photo = e.target.photo.value;
+    const newUser = {
+      name,
+      email,
+      bankAccount,
+      salary,
+      designation,
+      role,
+      photo,
+    };
+    console.log(newUser);
+  };
   return (
     <div>
       <header>
@@ -23,8 +32,14 @@ const Register = () => {
           title={"Register"}
           subTitle={"Register To Use More Features"}
         ></Headline>
+        <Helmet>
+          <title>Register || 71 Digital SIgn</title>
+        </Helmet>
       </header>
-      <form onSubmit={handleSubmit} className="card-body bg-muted-green bg-opacity-25 rounded-2xl w-full md:w-[70%] lg:w-[50%] mx-auto">
+      <form
+        onSubmit={handleSubmit}
+        className="card-body bg-muted-green bg-opacity-25 rounded-2xl w-full md:w-[70%] lg:w-[50%] mx-auto"
+      >
         {/* name */}
         <div className="form-control">
           <label className="label">
@@ -96,9 +111,7 @@ const Register = () => {
             <span className="label-text text-color-text">Role</span>
           </label>
           <select name="role" className="select select-ghost w-full bg-white">
-            <option disabled >
-              Pick your role
-            </option>
+            <option disabled>Pick your role</option>
             <option value={"employee"}>Employee</option>
             <option value={"hr"}> HR</option>
           </select>

@@ -1,6 +1,8 @@
 import React, { createContext, useEffect, useState } from "react";
 import { auth } from "../Firebase/firebase.init";
 import {
+    GoogleAuthProvider,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -70,7 +72,17 @@ const AuthProvider = ({ children }) => {
       return unsubscribe();
     };
   }, [axiosPublic]);
-  const authInfo = {};
+  const authInfo = {
+    logOutUser,
+    googleSignInUser,
+    signInUser,
+    updateUser,
+    createUser,
+    setLoading,
+    loading,
+    setUser,
+    user,
+  };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

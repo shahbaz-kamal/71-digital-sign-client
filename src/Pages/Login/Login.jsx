@@ -2,6 +2,7 @@ import React from "react";
 import Headline from "../../Shared/Headline";
 import SocialLogin from "../../Shared/SocialLogin";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   return (
@@ -11,6 +12,9 @@ const Login = () => {
           title={"login"}
           subTitle={"Login To Use More Features"}
         ></Headline>
+        <Helmet>
+          <title>Login || 71 Digital SIgn</title>
+        </Helmet>
       </header>
       <form className="card-body bg-muted-green bg-opacity-25 rounded-2xl w-full md:w-[70%] lg:w-[50%] mx-auto">
         <div className="form-control">
@@ -38,7 +42,7 @@ const Login = () => {
         <div className="text-center mt-2 text-color-text">
           <p className="text-base md:text-lg">
             Don't have an account?
-            <Link to={'/register'}>
+            <Link to={"/register"}>
               <span className="font-bold ml-1">Register Now</span>
             </Link>
           </p>
