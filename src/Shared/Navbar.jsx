@@ -4,11 +4,24 @@ import logo1 from "../assets/logo-100.png";
 import logo2 from "../assets/logo-200.png";
 import { CiMenuFries } from "react-icons/ci";
 import { RxCross1 } from "react-icons/rx";
+import UseAuth from "../Hooks/UseAuth";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, logOutUser } = UseAuth();
   const [showMobileNavItems, setShowMobileNavItems] = useState(false);
 
+  const handleLogOut = async () => {
+    logOutUser().then(() => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Log Out Successfull",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    });
+  };
   const handleShowNav = () => {
     setShowMobileNavItems(true);
   };
@@ -106,12 +119,19 @@ const Navbar = () => {
             <ul className="hidden lg:flex items-center  gap-4 mr-10">
               {links}
             </ul>
-            {/* login button */}
-            <Link to={"/login"}>
-              <button className=" text-base md:text-lg py-2 border border-primary rounded-xl px-5 hover:bg-primary hover:text-white transition duration-300 ease-in-out font-semibold ">
-                Log In
+            {/* login /logOut buttonbutton */}
+            {user && user?.email ? (
+              <button onClick={handleLogOut} className=" text-base md:text-lg py-2 border border-primary rounded-xl px-5 hover:bg-primary hover:text-white transition duration-300 ease-in-out font-semibold ">
+                Log Out
               </button>
-            </Link>
+            ) : (
+              <Link to={"/login"}>
+                <button className=" text-base md:text-lg py-2 border border-primary rounded-xl px-5 hover:bg-primary hover:text-white transition duration-300 ease-in-out font-semibold ">
+                  Log In
+                </button>
+              </Link>
+            )}
+
             <div className="text-black lg:hidden ml-4 flex">
               {showMobileNavItems ? (
                 <span onClick={handleHideNav}>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Shared/SocialLogin";
 import Headline from "../../Shared/Headline";
 import { Helmet } from "react-helmet-async";
@@ -8,7 +8,9 @@ import Swal from "sweetalert2";
 import { imageUpload } from "../../Utilities/imageUpload";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 
+
 const Register = () => {
+  const navigate = useNavigate();
   const axiosPublic = UseAxiosPublic();
   const {
     logOutUser,
@@ -94,6 +96,7 @@ const Register = () => {
                 showConfirmButton: false,
                 timer: 1500,
               });
+              navigate('/')
             }
           })
           .catch((err) => {
