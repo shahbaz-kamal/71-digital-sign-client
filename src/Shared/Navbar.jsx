@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo1 from "../assets/logo-100.png";
 import logo2 from "../assets/logo-200.png";
 import { CiMenuFries } from "react-icons/ci";
@@ -107,9 +107,11 @@ const Navbar = () => {
               {links}
             </ul>
             {/* login button */}
-            <button className=" text-base md:text-lg py-2 border border-primary rounded-xl px-5 hover:bg-primary hover:text-white transition duration-300 ease-in-out font-semibold ">
-              Log In
-            </button>
+            <Link to={"/login"}>
+              <button className=" text-base md:text-lg py-2 border border-primary rounded-xl px-5 hover:bg-primary hover:text-white transition duration-300 ease-in-out font-semibold ">
+                Log In
+              </button>
+            </Link>
             <div className="text-black lg:hidden ml-4 flex">
               {showMobileNavItems ? (
                 <span onClick={handleHideNav}>
