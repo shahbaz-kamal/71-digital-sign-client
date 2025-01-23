@@ -4,6 +4,7 @@ import SocialLogin from "../../Shared/SocialLogin";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import UseAuth from "../../Hooks/UseAuth";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const {
@@ -17,7 +18,30 @@ const Login = () => {
     setUser,
     user,
   } = UseAuth();
-
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+    signInUser(email, password)
+      .then((result) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `Signed in to account of ${result.user.displayName}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${error.message}`,
+        });
+      });
+  };
   return (
     <div>
       <header>
@@ -29,12 +53,16 @@ const Login = () => {
           <title>Login || 71 Digital SIgn</title>
         </Helmet>
       </header>
-      <form className="card-body bg-muted-green bg-opacity-25 rounded-2xl w-full md:w-[70%] lg:w-[50%] mx-auto">
+      <form
+        onSubmit={handleLogin}
+        className="card-body bg-muted-green bg-opacity-25 rounded-2xl w-full md:w-[70%] lg:w-[50%] mx-auto"
+      >
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
           </label>
           <input
+            name="email"
             type="email"
             placeholder="email"
             className="input input-bordered"
@@ -46,6 +74,7 @@ const Login = () => {
             <span className="label-text">Password</span>
           </label>
           <input
+            name="password"
             type="password"
             placeholder="password"
             className="input input-bordered"

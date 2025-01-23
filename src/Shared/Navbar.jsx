@@ -1,15 +1,19 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo1 from "../assets/logo-100.png";
 import logo2 from "../assets/logo-200.png";
 import { CiMenuFries } from "react-icons/ci";
 import { RxCross1 } from "react-icons/rx";
 import UseAuth from "../Hooks/UseAuth";
 import Swal from "sweetalert2";
+import UseAxiosSecure from "../Hooks/UseAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const Navbar = () => {
+  const axiosSecure = UseAxiosSecure();
   const { user, logOutUser } = UseAuth();
   const [showMobileNavItems, setShowMobileNavItems] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogOut = async () => {
     logOutUser().then(() => {
@@ -20,6 +24,7 @@ const Navbar = () => {
         showConfirmButton: false,
         timer: 1500,
       });
+      navigate("/");
     });
   };
   const handleShowNav = () => {
@@ -28,6 +33,18 @@ const Navbar = () => {
   const handleHideNav = () => {
     setShowMobileNavItems(false);
   };
+
+  // fetching data for navbar using tanstack query
+  const { data: userData = {} } = useQuery({
+    queryKey: ["userData", user?.email],
+    queryFn: async () => {
+      const email = user.email;
+      const res = await axiosSecure.get(`/user/${email}`);
+      return res.data;
+    },
+  });
+
+  console.log(userData);
 
   const links = (
     <>
@@ -121,7 +138,10 @@ const Navbar = () => {
             </ul>
             {/* login /logOut buttonbutton */}
             {user && user?.email ? (
-              <button onClick={handleLogOut} className=" text-base md:text-lg py-2 border border-primary rounded-xl px-5 hover:bg-primary hover:text-white transition duration-300 ease-in-out font-semibold ">
+              <button
+                onClick={handleLogOut}
+                className=" text-base md:text-lg py-2 border border-primary rounded-xl px-5 hover:bg-primary hover:text-white transition duration-300 ease-in-out font-semibold "
+              >
                 Log Out
               </button>
             ) : (
@@ -132,6 +152,25 @@ const Navbar = () => {
               </Link>
             )}
 
+            {/* user photo */}
+            {user && user?.email ? (
+              <div
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content={`${userData.name}`}
+                className="flex flex-col items-center w-12 h-12 ml-2 z-100"
+              >
+                {/* Profile Image */}
+                <div className="w-12 h-12 mb-2">
+                  <img
+                    className="w-full h-full object-cover rounded-full"
+                    src={userData.profilePhoto}
+                    alt="User Profile"
+                  />
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
             <div className="text-black lg:hidden ml-4 flex">
               {showMobileNavItems ? (
                 <span onClick={handleHideNav}>

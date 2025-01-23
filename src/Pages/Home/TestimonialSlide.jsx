@@ -3,11 +3,10 @@ import ReactStars from "react-rating-stars-component";
 
 const TestimonialSlide = ({ testimonialData }) => {
   const { ratings, image, testimonial, designation, name } = testimonialData;
-  console.log(testimonialData);
+
   return (
     <div className="p-4 bg-muted-green rounded-lg bg-opacity-25">
       <p data-aos="fade-left" className="mb-4">
-       
         ❝{testimonial}❞
       </p>
       <div data-aos="fade-right" className="flex gap-3 ">

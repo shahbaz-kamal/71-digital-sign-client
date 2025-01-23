@@ -3,8 +3,11 @@ import Navbar from "../Shared/Navbar";
 import { Outlet } from "react-router-dom";
 import Footer from "../Shared/Footer";
 import Aos from "aos";
+import UseAuth from "../Hooks/UseAuth";
+import Loading from "../Shared/Loading";
 
 const MainLayOut = () => {
+  const {user,loading}=UseAuth()
   useEffect(() => {
     Aos.init({
       duration: 1200, // Animation duration in milliseconds
@@ -12,8 +15,13 @@ const MainLayOut = () => {
       once: false, // Whether animation should happen only once
     });
   }, []);
+
+  if(loading){
+    return <Loading></Loading>
+  }
   return (
     <div>
+   
       <section>
         <Navbar></Navbar>
       </section>
