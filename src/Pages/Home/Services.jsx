@@ -14,7 +14,7 @@ const Services = () => {
     };
     fetchServicesData();
   }, []);
-  console.log(services);
+
   return (
     <div>
       <header>
@@ -23,7 +23,7 @@ const Services = () => {
           subTitle={"Tailored Solutions for Your Needs"}
         ></Headline>
       </header>
-      <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {services.map((service, index) => (
           <ServiceCard key={service._id} service={service}></ServiceCard>
         ))}

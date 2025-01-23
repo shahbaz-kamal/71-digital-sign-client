@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Sarah Johnson",
+    "designation": "Marketing Manager",
+    "testimonial": "71 Digital Sign delivered exceptional service! The designs and quality exceeded expectations.",
+    "image": "https://i.ibb.co.com/DkpSwD0/andrea-p.jpg",
+    "ratings": 4.8
+  },
+  {
+    "id": 2,
+    "name": "Michael Lee",
+    "designation": "Business Owner",
+    "testimonial": "Professional, reliable, and creative! They turned our vision into reality with amazing designs.",
+    "image": "https://i.ibb.co.com/Jxt9yCJ/kaleef-l.jpg",
+    "ratings": 5.0
+  },
+  {
+    "id": 3,
+    "name": "Emily Davis",
+    "designation": "Event Planner",
+    "testimonial": "I was impressed with the speed and quality of work. Everything was perfect and on time.",
+    "image": "https://i.ibb.co.com/XVv9bmj/brooke-cagle.jpg",
+    "ratings": 4.7
+  },
+  {
+    "id": 4,
+    "name": "David Brown",
+    "designation": "Graphic Designer",
+    "testimonial": "71 Digital Sign is my go-to for all my printing needs. Their creativity is unmatched.",
+    "image": "https://i.ibb.co.com/JQB416Z/William-brown.jpg",
+    "ratings": 4.9
+  },
+  {
+    "id": 5,
+    "name": "Sophia Miller",
+    "designation": "Freelancer",
+    "testimonial": "The team was very helpful, and the T-shirt designs were a hit. Great experience overall!",
+    "image": "https://i.ibb.co.com/FKrJcqw/vinicius-wiesehofer.jpg",
+    "ratings": 4.6
+  }
+]
