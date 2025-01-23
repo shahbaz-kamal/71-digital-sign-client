@@ -10,20 +10,20 @@ const Banner = () => {
   return (
     <div
       id="banner"
-      className="flex flex-col-reverse md:flex-row md:items-center justify-between min-h-[75vh] px-5 md:px-10 bg-neutral bg-opacity-80 rounded-lg"
+      className="flex flex-col-reverse md:flex-row md:items-center justify-between min-h-[70vh] px-5 md:px-10 bg-neutral bg-opacity-80 rounded-lg py-4 md:py-8"
     >
       {/* text  */}
       <div className="w-full md:w-1/2 flex flex-col gap-5 items-center md:items-start">
-        <p data-aos="fade-right" class="text-secondary font-medium text-lg md:text-xl ">
+        <p data-aos="fade-right" className="text-secondary font-medium text-lg md:text-xl ">
           100% Satisfaction Guaranteed
         </p>
         <h1
           data-aos="fade-right"
-          class="text-2xl md:text-5xl font-bold font-play text-white"
+          className="text-2xl md:text-5xl font-bold font-play text-white"
         >
           Welcome to <span className="text-light-accent font-extrabold">71 Digital Sign</span>
         </h1>
-        <p data-aos="fade-right" class="text-white text-lg max-w-[80%] text-center md:text-start">
+        <p data-aos="fade-right" className="text-white text-lg max-w-[80%] text-center md:text-start">
           We provide high-quality design and printing services for your banners,
           crests, visiting cards, and more. Let's bring your ideas to life!
         </p>

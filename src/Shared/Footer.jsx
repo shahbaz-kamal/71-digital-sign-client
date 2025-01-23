@@ -6,7 +6,7 @@ import { IoLogoInstagram } from "react-icons/io";
 
 const Footer = () => {
   return (
-    <footer className="footer footer-center text-black p-10 mt-10 md:mt-14">
+    <footer className="footer footer-center text-black p-10 mt-7 md:mt-10">
       <aside>
         <img className="w-20" src={logo} alt="" />
         <p className="font-bold">
