@@ -3,6 +3,8 @@ import Banner from "./Banner";
 import Services from "./Services";
 import Testimonial from "./Testimonial";
 import Process from "./Process";
+import { FaQ } from "react-icons/fa6";
+import FAQ from "./FAQ";
 
 const Home = () => {
   return (
@@ -14,10 +16,13 @@ const Home = () => {
         <Services></Services>
       </section>
       <section>
-       <Testimonial></Testimonial>
+        <Testimonial></Testimonial>
       </section>
       <section>
-     <Process></Process>
+        <Process></Process>
+      </section>
+      <section>
+        <FAQ></FAQ>
       </section>
     </div>
   );
