@@ -5,8 +5,11 @@ import Headline from "../../Shared/Headline";
 import { Helmet } from "react-helmet-async";
 import UseAuth from "../../Hooks/UseAuth";
 import Swal from "sweetalert2";
+import { imageUpload } from "../../Utilities/imageUpload";
+import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 
 const Register = () => {
+  const axiosPublic = UseAxiosPublic();
   const {
     logOutUser,
     googleSignInUser,
@@ -18,7 +21,7 @@ const Register = () => {
     setUser,
     user,
   } = UseAuth();
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
@@ -26,38 +29,42 @@ const Register = () => {
     const salary = e.target.salary.value;
     const designation = e.target.designation.value;
     const role = e.target.role.value;
-    const photo = e.target.photo.value;
+    const photo = e.target.photo.files[0];
     const password = e.target.password.value;
 
-   // verifying password
-   const regexPass = /^.{6,}$/;
-   const regexUpperCase = /[A-Z]/;
-   const regexLowerCase = /[a-z]/;
+    // verifying password
+    const regexPass = /^.{6,}$/;
+    const regexUpperCase = /[A-Z]/;
+    const regexLowerCase = /[a-z]/;
 
-   if (!regexPass.test(password)) {
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "Password should be at least 6 characters",
-    });
-    return;
-  }
-  if (!regexUpperCase.test(password)) {
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "Password should contain at least 1 uppercase letter",
-    });
-    return;
-  }
-  if (!regexLowerCase.test(password)) {
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "Password should contain at least 1 lowercase letter",
-    });
-    return;
-  }
+    if (!regexPass.test(password)) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Password should be at least 6 characters",
+      });
+      return;
+    }
+    if (!regexUpperCase.test(password)) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Password should contain at least 1 uppercase letter",
+      });
+      return;
+    }
+    if (!regexLowerCase.test(password)) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Password should contain at least 1 lowercase letter",
+      });
+      return;
+    }
+    // *image upload
+
+    const { url: profilePhoto } = await imageUpload(photo);
+
     const newUser = {
       name,
       email,
@@ -65,9 +72,41 @@ const Register = () => {
       salary,
       designation,
       role,
-      photo,
+      profilePhoto,
     };
     console.log(newUser);
+    // *adding create user
+    createUser(email, password)
+      .then((result) => {
+        console.log("from register page----->", result.user);
+        updateUser(name, email)
+          .then(async () => {
+            console.log("updated User Successfully");
+
+            // adding user info to db
+            const res = await axiosPublic.post(`users/${email}`, newUser);
+            console.log(res.data);
+            if (res.data.insertedId) {
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "User created successfully.",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
+          })
+          .catch((err) => {
+            console.log("ERROR IN UPDATING PROFILE", err);
+          });
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${error.message}`,
+        });
+      });
   };
   return (
     <div>
