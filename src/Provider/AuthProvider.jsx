@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 import { auth } from "../Firebase/firebase.init";
 import {
   createUserWithEmailAndPassword,
-    GoogleAuthProvider,
+  GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -17,6 +17,10 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
+
+  // *for token
+
+ 
 
   // *creating user
   const createUser = (email, password) => {
@@ -53,8 +57,14 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       if (currentUser) {
         console.log("Current User ------> ", currentUser);
-        // get token and store client
+        // get token and storing in the local storage
         const userInfo = { email: currentUser.email };
+        axiosPublic.post("jwt", userInfo).then((res) => {
+          if (res.data.token) {
+            localStorage.setItem("access-token", res.data.token);
+          }
+        });
+
         // axiosPublic.post('/jwt', userInfo)
         //     .then(res => {
         //         if (res.data.token) {
@@ -64,8 +74,9 @@ const AuthProvider = ({ children }) => {
         //     })
         setLoading(false);
       } else {
-        // TODO: remove token (if token stored in the client side: Local storage, caching, in memory)
+        //  remove token and log out user  (if token stored in the client side)
         // localStorage.removeItem('access-token');
+        localStorage.removeItem("access-token");
         setLoading(false);
       }
     });
@@ -83,6 +94,7 @@ const AuthProvider = ({ children }) => {
     loading,
     setUser,
     user,
+ 
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

@@ -7,11 +7,13 @@ import UseAuth from "../../Hooks/UseAuth";
 import Swal from "sweetalert2";
 import { imageUpload } from "../../Utilities/imageUpload";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
+import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 
 
 const Register = () => {
   const navigate = useNavigate();
   const axiosPublic = UseAxiosPublic();
+  const axiosSecure=UseAxiosSecure()
   const {
     logOutUser,
     googleSignInUser,
@@ -74,9 +76,9 @@ const Register = () => {
       salary,
       designation,
       role,
-      profilePhoto,
+      profilePhoto
     };
-    console.log(newUser);
+
     // *adding create user
     createUser(email, password)
       .then((result) => {
@@ -86,7 +88,7 @@ const Register = () => {
             console.log("updated User Successfully");
 
             // adding user info to db
-            const res = await axiosPublic.post(`users/${email}`, newUser);
+            const res = await axiosSecure.post(`users/${email}`, newUser);
             console.log(res.data);
             if (res.data.insertedId) {
               Swal.fire({
