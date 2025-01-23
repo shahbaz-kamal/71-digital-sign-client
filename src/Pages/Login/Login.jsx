@@ -3,8 +3,21 @@ import Headline from "../../Shared/Headline";
 import SocialLogin from "../../Shared/SocialLogin";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import UseAuth from "../../Hooks/UseAuth";
 
 const Login = () => {
+  const {
+    logOutUser,
+    googleSignInUser,
+    signInUser,
+    updateUser,
+    createUser,
+    setLoading,
+    loading,
+    setUser,
+    user,
+  } = UseAuth();
+
   return (
     <div>
       <header>

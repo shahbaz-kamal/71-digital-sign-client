@@ -3,9 +3,22 @@ import { Link } from "react-router-dom";
 import SocialLogin from "../../Shared/SocialLogin";
 import Headline from "../../Shared/Headline";
 import { Helmet } from "react-helmet-async";
+import UseAuth from "../../Hooks/UseAuth";
+import Swal from "sweetalert2";
 
 const Register = () => {
-  const handleSubmit = (e) => {
+  const {
+    logOutUser,
+    googleSignInUser,
+    signInUser,
+    updateUser,
+    createUser,
+    setLoading,
+    loading,
+    setUser,
+    user,
+  } = UseAuth();
+  const handleRegister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
@@ -14,6 +27,37 @@ const Register = () => {
     const designation = e.target.designation.value;
     const role = e.target.role.value;
     const photo = e.target.photo.value;
+    const password = e.target.password.value;
+
+   // verifying password
+   const regexPass = /^.{6,}$/;
+   const regexUpperCase = /[A-Z]/;
+   const regexLowerCase = /[a-z]/;
+
+   if (!regexPass.test(password)) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Password should be at least 6 characters",
+    });
+    return;
+  }
+  if (!regexUpperCase.test(password)) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Password should contain at least 1 uppercase letter",
+    });
+    return;
+  }
+  if (!regexLowerCase.test(password)) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Password should contain at least 1 lowercase letter",
+    });
+    return;
+  }
     const newUser = {
       name,
       email,
@@ -37,7 +81,7 @@ const Register = () => {
         </Helmet>
       </header>
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleRegister}
         className="card-body bg-muted-green bg-opacity-25 rounded-2xl w-full md:w-[70%] lg:w-[50%] mx-auto"
       >
         {/* name */}
