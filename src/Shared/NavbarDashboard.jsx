@@ -20,6 +20,7 @@ const NavbarDashboard = () => {
   const [shhowLogOutBtn, setShowLogOutBtn] = useState(false);
 
   const handleLogOut = async () => {
+    // navigate("/");
     logOutUser().then(() => {
       Swal.fire({
         position: "top-end",
@@ -51,7 +52,7 @@ const NavbarDashboard = () => {
     }, [user]);
   }
   const { role } = UseRole();
-  console.log(userData);
+//   console.log(userData);
   let links = <></>;
   if (role === "employee") {
     links = (
@@ -70,7 +71,20 @@ const NavbarDashboard = () => {
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
           </li>
         </NavLink>
-
+        <NavLink
+          to={"/dashboard/profile"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold text-xl md:text-lg"
+              : "text-black text-xl md:text-lg"
+          }
+        >
+          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+            Profile
+            {/* Custom underline */}
+            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+          </li>
+        </NavLink>
         <NavLink
           to={"/dashboard/work-sheet"}
           className={({ isActive }) =>
@@ -117,7 +131,20 @@ const NavbarDashboard = () => {
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
           </li>
         </NavLink>
-
+        <NavLink
+          to={"/dashboard/profile"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold text-xl md:text-lg"
+              : "text-black text-xl md:text-lg"
+          }
+        >
+          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+            Profile
+            {/* Custom underline */}
+            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+          </li>
+        </NavLink>
         <NavLink
           to={"/dashboard/employee-list"}
           className={({ isActive }) =>
@@ -147,6 +174,20 @@ const NavbarDashboard = () => {
         >
           <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
             Home
+            {/* Custom underline */}
+            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+          </li>
+        </NavLink>
+        <NavLink
+          to={"/dashboard/profile"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold text-xl md:text-lg"
+              : "text-black text-xl md:text-lg"
+          }
+        >
+          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+            Profile
             {/* Custom underline */}
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
           </li>

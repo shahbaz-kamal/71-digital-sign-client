@@ -83,7 +83,7 @@ const Navbar = () => {
       </NavLink>
       {user && user?.email && (
         <NavLink
-          to={"/dashboard"}
+          to={"/dashboard/profile"}
           className={({ isActive }) =>
             isActive
               ? "text-primary font-semibold text-xl md:text-lg"
