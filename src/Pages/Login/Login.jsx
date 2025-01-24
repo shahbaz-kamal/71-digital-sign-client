@@ -45,6 +45,7 @@ const Login = () => {
           title: "Oops...",
           text: `${error.message}`,
         });
+        setLoading(false)
       });
   };
   return (

@@ -131,7 +131,7 @@ const Register = () => {
       </header>
       <form
         onSubmit={handleRegister}
-        className="card-body bg-muted-green bg-opacity-25 rounded-2xl w-full md:w-[70%] lg:w-[50%] mx-auto"
+        className="card-body bg-muted-green bg-opacity-25 rounded-2xl w-full md:w-[80%] lg:w-[70%]  mx-auto grid grid-cols-1 md:grid-cols-2"
       >
         {/* name */}
         <div className="form-control">
@@ -210,14 +210,14 @@ const Register = () => {
           </select>
         </div>
         {/* Photo */}
-        <div className="form-control">
+        <div className="form-control ">
           <label className="label">
             <span className="label-text text-color-text">Upload Photo</span>
           </label>
           <input
             name="photo"
             type="file"
-            className="file-input file-input-bordered w-full max-w-xs"
+            className="file-input file-input-bordered w-full "
           />
         </div>
         {/* password */}
@@ -233,7 +233,7 @@ const Register = () => {
             required
           />
         </div>
-        <div className="text-center mt-2 text-color-text">
+        <div className="text-center mt-2 text-color-text md:col-span-2">
           <p className="text-base md:text-lg">
             Already have an account?
             <Link to={"/login"}>
@@ -242,13 +242,16 @@ const Register = () => {
           </p>
         </div>
 
-        <div className="form-control mt-6">
+        <div className="form-control mt-6 md:col-span-2">
           <button className="btn btn-primary bg-secondary border border-secondary hover:bg-muted-green hover:border-muted-green hover:text-color-text transition ease-in-out duration-300 font-medium text-lg md:text-xl text-white">
             Register
           </button>
         </div>
-        <div className="divider">OR</div>
-        <SocialLogin></SocialLogin>
+        <div className="divider md:col-span-2">OR</div>
+        <div className="md:col-span-2">
+          
+          <SocialLogin></SocialLogin>
+        </div>
       </form>
     </div>
   );

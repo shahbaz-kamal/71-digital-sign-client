@@ -9,9 +9,9 @@ const Profile = () => {
   const { userData } = UseSingleUserData();
   console.log(userData);
   return (
-    <div className="flex flex-col items-center bg-background min-h-screen">
+    <div className="flex flex-col items-center bg-background ">
       {/* Cover Photo */}
-      <div className="w-full relative rounded-lg">
+      <div className="w-full lg:w-[70%] relative rounded-lg">
         <img
           src={covorPhoto}
           alt="Cover"

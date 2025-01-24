@@ -50,8 +50,6 @@ const Navbar = () => {
     }, [user]);
   }
 
-  console.log(userData);
-
   const links = (
     <>
       <NavLink

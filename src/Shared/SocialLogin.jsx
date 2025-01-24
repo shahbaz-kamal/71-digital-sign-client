@@ -52,13 +52,14 @@ const SocialLogin = () => {
         }
       })
       .catch((error) => {
-        setLoading(false);
+        
         Swal.fire({
           icon: "error",
           title: "Oops...",
           text: `${error.message}`,
         });
-        navigate("/login");
+        navigate("/");
+        setLoading(false);
       });
   };
   return (
