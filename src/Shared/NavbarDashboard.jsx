@@ -9,8 +9,9 @@ import Swal from "sweetalert2";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosPublic from "../Hooks/UseAxiosPublic";
+import UseRole from "../Hooks/UseRole";
 
-const Navbar = () => {
+const NavbarDashboard = () => {
   const axiosSecure = UseAxiosSecure();
   // const [userData, setUserData] = useState({});
   const { user, logOutUser, userData, setUserData, setLoading } = UseAuth();
@@ -49,41 +50,14 @@ const Navbar = () => {
       fetchUserData(user?.email);
     }, [user]);
   }
-
+  const { role } = UseRole();
   console.log(userData);
-
-  const links = (
-    <>
-      <NavLink
-        to={"/"}
-        className={({ isActive }) =>
-          isActive
-            ? "text-primary font-semibold text-xl md:text-lg"
-            : "text-black text-xl md:text-lg"
-        }
-      >
-        <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
-          Home
-          {/* Custom underline */}
-          <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
-        </li>
-      </NavLink>
-      <NavLink
-        to={"/portfolio"}
-        className={({ isActive }) =>
-          isActive
-            ? "text-primary font-semibold text-xl md:text-lg"
-            : "text-black text-xl md:text-lg"
-        }
-      >
-        <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
-          PortFolio {/* Custom underline */}
-          <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
-        </li>
-      </NavLink>
-      {user && user?.email && (
+  let links = <></>;
+  if (role === "employee") {
+    links = (
+      <>
         <NavLink
-          to={"/dashboard"}
+          to={"/"}
           className={({ isActive }) =>
             isActive
               ? "text-primary font-semibold text-xl md:text-lg"
@@ -91,39 +65,122 @@ const Navbar = () => {
           }
         >
           <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
-            Dashboard {/* Custom underline */}
+            Home
+            {/* Custom underline */}
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
           </li>
         </NavLink>
-      )}
-      <NavLink
-        to={"/contact-us"}
-        className={({ isActive }) =>
-          isActive
-            ? "text-primary font-semibold text-xl md:text-lg"
-            : "text-black text-xl md:text-lg"
-        }
-      >
-        <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
-          Contact Us {/* Custom underline */}
-          <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
-        </li>
-      </NavLink>
-      <NavLink
-        to={"/about-us"}
-        className={({ isActive }) =>
-          isActive
-            ? "text-primary font-semibold text-xl md:text-lg"
-            : "text-black text-xl md:text-lg"
-        }
-      >
-        <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
-          About Us {/* Custom underline */}
-          <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
-        </li>
-      </NavLink>
-    </>
-  );
+
+        <NavLink
+          to={"/dashboard/work-sheet"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold text-xl md:text-lg"
+              : "text-black text-xl md:text-lg"
+          }
+        >
+          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+            Work Sheet{/* Custom underline */}
+            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+          </li>
+        </NavLink>
+        <NavLink
+          to={"/dashboard/payment-history"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold text-xl md:text-lg"
+              : "text-black text-xl md:text-lg"
+          }
+        >
+          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+            Payment History
+            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+          </li>
+        </NavLink>
+      </>
+    );
+  }
+  if (role === "hr") {
+    links = (
+      <>
+        <NavLink
+          to={"/"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold text-xl md:text-lg"
+              : "text-black text-xl md:text-lg"
+          }
+        >
+          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+            Home
+            {/* Custom underline */}
+            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+          </li>
+        </NavLink>
+
+        <NavLink
+          to={"/dashboard/employee-list"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold text-xl md:text-lg"
+              : "text-black text-xl md:text-lg"
+          }
+        >
+          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+            Employee List
+            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+          </li>
+        </NavLink>
+      </>
+    );
+  }
+  if (role === "admin") {
+    links = (
+      <>
+        <NavLink
+          to={"/"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold text-xl md:text-lg"
+              : "text-black text-xl md:text-lg"
+          }
+        >
+          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+            Home
+            {/* Custom underline */}
+            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+          </li>
+        </NavLink>
+
+        <NavLink
+          to={"/dashboard/all-employee-list"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold text-xl md:text-lg"
+              : "text-black text-xl md:text-lg"
+          }
+        >
+          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+            All Employee List
+            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+          </li>
+        </NavLink>
+        <NavLink
+          to={"/dashboard/payroll"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold text-xl md:text-lg"
+              : "text-black text-xl md:text-lg"
+          }
+        >
+          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+            Payroll
+            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+          </li>
+        </NavLink>
+      </>
+    );
+  }
   return (
     <div className="">
       {/* first div */}
@@ -228,4 +285,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarDashboard;

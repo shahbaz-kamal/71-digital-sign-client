@@ -98,7 +98,7 @@ const Register = () => {
                   icon: "success",
                   title: "User created successfully. Please Login",
                   showConfirmButton: false,
-                  timer: 1500,
+                  timer: 3000,
                 });
               });
             }

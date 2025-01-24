@@ -6,6 +6,13 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import PrivateRoute from "./PrivateRoute";
+import DashboardLayOut from "../LayOuts/DashboardLayOut";
+import WorkSheet from "../Pages/WorkSheet/WorkSheet";
+import PaymentHistory from "../Pages/PaymentHistory/PaymentHistory";
+import EmployeeList from "../Pages/EmployeeList/EmployeeList";
+import AllEmployeeList from "../Pages/AllEmployeeList/AllEmployeeList";
+import Payroll from "../Pages/PayRoll/Payroll";
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +24,28 @@ export const router = createBrowserRouter([
       { path: "/contact-us", element: <ContactUs></ContactUs> },
       { path: "about-us", element: <AboutUs></AboutUs> },
       { path: "/login", element: <Login></Login> },
-      {path:"/register",element:<Register></Register>}
+      { path: "/register", element: <Register></Register> },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayOut></DashboardLayOut>
+      </PrivateRoute>
+    ),
+    children: [
+      // *for employee
+      { path: "work-sheet", element: <WorkSheet></WorkSheet> },
+      { path: "payment-history", element: <PaymentHistory></PaymentHistory> },
+      // *For hr
+      { path: "employee-list", element: <EmployeeList></EmployeeList> },
+      // *for admin
+      {
+        path: "all-employee-list",
+        element: <AllEmployeeList></AllEmployeeList>,
+      },
+      { path: "payroll", element: <Payroll></Payroll> },
     ],
   },
 ]);
