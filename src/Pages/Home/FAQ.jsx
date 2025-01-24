@@ -11,7 +11,10 @@ const FAQ = () => {
         ></Headline>
       </header>
       <section className="space-y-4 ">
-        <div className="collapse collapse-plus bg-muted-green bg-opacity-25">
+        <div
+          data-aos="fade-left"
+          className="collapse collapse-plus bg-muted-green bg-opacity-25"
+        >
           <input type="radio" name="my-accordion-3" defaultChecked />
           <div className="collapse-title text-xl font-medium text-color-text">
             How do I submit a request for design services?
@@ -26,7 +29,10 @@ const FAQ = () => {
           </div>
         </div>
 
-        <div className="collapse collapse-plus bg-muted-green bg-opacity-25">
+        <div
+          data-aos="fade-right"
+          className="collapse collapse-plus bg-muted-green bg-opacity-25"
+        >
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium text-color-text">
             What is the typical turnaround time for a custom design?
@@ -41,7 +47,10 @@ const FAQ = () => {
           </div>
         </div>
 
-        <div className="collapse collapse-plus bg-muted-green bg-opacity-25">
+        <div
+          data-aos="fade-left"
+          className="collapse collapse-plus bg-muted-green bg-opacity-25"
+        >
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium text-color-text">
             Can I request changes to a design after approval?
@@ -55,7 +64,10 @@ const FAQ = () => {
             </p>
           </div>
         </div>
-        <div className="collapse collapse-plus bg-muted-green bg-opacity-25">
+        <div
+          data-aos="fade-right"
+          className="collapse collapse-plus bg-muted-green bg-opacity-25"
+        >
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium text-color-text">
             Do you offer delivery services for printed materials?

@@ -9,11 +9,11 @@ import { imageUpload } from "../../Utilities/imageUpload";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 
-
 const Register = () => {
   const navigate = useNavigate();
   const axiosPublic = UseAxiosPublic();
-  const axiosSecure=UseAxiosSecure()
+  const axiosSecure = UseAxiosSecure();
+
   const {
     logOutUser,
     googleSignInUser,
@@ -76,7 +76,7 @@ const Register = () => {
       salary,
       designation,
       role,
-      profilePhoto
+      profilePhoto,
     };
 
     // *adding create user
@@ -91,18 +91,21 @@ const Register = () => {
             const res = await axiosSecure.post(`users/${email}`, newUser);
             console.log(res.data);
             if (res.data.insertedId) {
-              Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "User created successfully.",
-                showConfirmButton: false,
-                timer: 1500,
+              logOutUser().then(() => {
+                navigate("/login");
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "User created successfully. Please Login",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
               });
-              navigate('/')
             }
           })
           .catch((err) => {
             console.log("ERROR IN UPDATING PROFILE", err);
+            setLoading(false);
           });
       })
       .catch((error) => {
@@ -111,6 +114,8 @@ const Register = () => {
           title: "Oops...",
           text: `${error.message}`,
         });
+        setLoading(false);
+        navigate("/");
       });
   };
   return (
@@ -239,7 +244,7 @@ const Register = () => {
 
         <div className="form-control mt-6">
           <button className="btn btn-primary bg-secondary border border-secondary hover:bg-muted-green hover:border-muted-green hover:text-color-text transition ease-in-out duration-300 font-medium text-lg md:text-xl text-white">
-            Login
+            Register
           </button>
         </div>
         <div className="divider">OR</div>

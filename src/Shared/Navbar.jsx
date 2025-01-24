@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo1 from "../assets/logo-100.png";
 import logo2 from "../assets/logo-200.png";
@@ -8,10 +8,12 @@ import UseAuth from "../Hooks/UseAuth";
 import Swal from "sweetalert2";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import UseAxiosPublic from "../Hooks/UseAxiosPublic";
 
 const Navbar = () => {
   const axiosSecure = UseAxiosSecure();
-  const { user, logOutUser } = UseAuth();
+  // const [userData, setUserData] = useState({});
+  const { user, logOutUser, userData, setUserData, loading } = UseAuth();
   const [showMobileNavItems, setShowMobileNavItems] = useState(false);
   const navigate = useNavigate();
 
@@ -34,15 +36,15 @@ const Navbar = () => {
     setShowMobileNavItems(false);
   };
 
-  // fetching data for navbar using tanstack query
-  const { data: userData = {} } = useQuery({
-    queryKey: ["userData", user?.email],
-    queryFn: async () => {
-      const email = user.email;
-      const res = await axiosSecure.get(`/user/${email}`);
-      return res.data;
-    },
-  });
+  // for navbar
+  const fetchUserData = async (email) => {
+    const res = await axiosSecure.get(`/user/${email}`);
+    setUserData(res.data);
+  };
+
+  useEffect(() => {
+    fetchUserData(user?.email);
+  }, [user]);
 
   console.log(userData);
 
@@ -162,9 +164,10 @@ const Navbar = () => {
                 {/* Profile Image */}
                 <div className="w-12 h-12 mb-2">
                   <img
+                    // referrerPolicy="no-referrer"
                     className="w-full h-full object-cover rounded-full"
-                    src={userData.profilePhoto}
-                    alt="User Profile"
+                    src={userData.profilePhoto }
+                    // alt="User Profile"
                   />
                 </div>
               </div>

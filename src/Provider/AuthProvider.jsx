@@ -10,17 +10,20 @@ import {
   updateProfile,
 } from "firebase/auth";
 import UseAxiosPublic from "../Hooks/UseAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
+import UseAxiosSecure from "../Hooks/UseAxiosSecure";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const axiosPublic = UseAxiosPublic();
+
   const [user, setUser] = useState(null);
+  const [userData, setUserData] = useState({});
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
 
   // *for token
-
- 
 
   // *creating user
   const createUser = (email, password) => {
@@ -51,6 +54,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signOut(auth);
   };
+
   //   *onauth state changed
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -94,7 +98,8 @@ const AuthProvider = ({ children }) => {
     loading,
     setUser,
     user,
- 
+    userData,
+    setUserData,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

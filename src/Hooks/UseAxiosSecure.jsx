@@ -6,15 +6,14 @@ const axiosSecure = axios.create({
   baseURL: "http://localhost:7800/",
 });
 const UseAxiosSecure = () => {
-  const navigate = useNavigate();
-  const { logOutUser } = UseAuth();
+  const { logOutUser, navigate } = UseAuth();
 
   // request iterceptors to add authorization header for every secure call
   axiosSecure.interceptors.request.use(
     function (config) {
       const token = localStorage.getItem("access-token");
       config.headers.authorization = `Bearer ${token}`;
-      console.log("request stopped by interceptors", token);
+      // console.log("request stopped by interceptors", token);
       return config;
     },
     function (error) {
@@ -31,7 +30,7 @@ const UseAxiosSecure = () => {
     async (error) => {
       const status = error.response.status;
       console.log("status error in the interceptors", status);
-    //   for 401 & 403 log out user and send the user to login page
+      //   for 401 & 403 log out user and send the user to login page
       if (status === 401 || status === 403) {
         await logOutUser();
         navigate("/");

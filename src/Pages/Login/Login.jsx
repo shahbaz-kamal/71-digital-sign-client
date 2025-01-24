@@ -1,12 +1,14 @@
 import React from "react";
 import Headline from "../../Shared/Headline";
 import SocialLogin from "../../Shared/SocialLogin";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import UseAuth from "../../Hooks/UseAuth";
 import Swal from "sweetalert2";
 
 const Login = () => {
+  const navigate = useNavigate();
+  
   const {
     logOutUser,
     googleSignInUser,
@@ -17,6 +19,7 @@ const Login = () => {
     loading,
     setUser,
     user,
+
   } = UseAuth();
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -32,6 +35,8 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+      
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);

@@ -4,11 +4,15 @@ import UseAuth from "../Hooks/UseAuth";
 import Swal from "sweetalert2";
 import UseAxiosPublic from "../Hooks/UseAxiosPublic";
 import { useNavigate } from "react-router-dom";
+import UseAxiosSecure from "../Hooks/UseAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const SocialLogin = () => {
+  // const { refetch } = useQuery();
   const navigate = useNavigate();
-  const { googleSignInUser } = UseAuth();
+  const { googleSignInUser, fetchUserData, user, setLoading } = UseAuth();
   const axiosPublic = UseAxiosPublic();
+  const axiosSecure = UseAxiosSecure();
   // name,
   // email,
   // bankAccount,
@@ -31,7 +35,7 @@ const SocialLogin = () => {
           role: "employee",
           profilePhoto: result?.user?.photoURL,
         };
-        const res = await axiosPublic.post(`users/${email}`, newUser);
+        const res = await axiosSecure.post(`users/${email}`, newUser);
 
         if (
           res?.data?.insertedId ||
@@ -48,11 +52,13 @@ const SocialLogin = () => {
         }
       })
       .catch((error) => {
+        setLoading(false);
         Swal.fire({
           icon: "error",
           title: "Oops...",
           text: `${error.message}`,
         });
+        navigate("/login");
       });
   };
   return (
