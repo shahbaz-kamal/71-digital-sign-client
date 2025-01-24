@@ -112,7 +112,7 @@ const WorkSheet = () => {
             <span className="label-text text-color-text">Add Task</span>
           </label>
           <button className="input input-bordered bg-secondary border border-secondary hover:bg-muted-green hover:border-muted-green hover:text-color-text transition ease-in-out duration-300 font-medium text-lg md:text-xl text-white">
-            Register
+            Add Work
           </button>
         </div>
       </form>
@@ -120,17 +120,17 @@ const WorkSheet = () => {
       <section className="mt-7 md:mt-10">
         <Headline title={"Your Work History"}></Headline>
         <div>
-          <div className="overflow-x-auto bg-muted-green bg-opacity-25 rounded-2xl w-full mx-auto">
+          <div className="overflow-x-auto bg-muted-green bg-opacity-25 rounded-2xl w-full mx-auto p-6">
             <table className="table">
               {/* head */}
               <thead>
                 <tr className="">
-                  <th className="text-center">#</th>
-                  <th className="text-center">Tasks</th>
-                  <th className="text-center">Hours Worked</th>
-                  <th className="text-center">Date </th>
-                  <th className="text-center">Edit </th>
-                  <th className="text-center">Delete </th>
+                  <th className="text-center text-sm md:text-base text-color-text">#</th>
+                  <th className="text-center text-sm md:text-base text-color-text">Tasks</th>
+                  <th className="text-center text-sm md:text-base text-color-text">Hours Worked</th>
+                  <th className="text-center text-sm md:text-base text-color-text">Date </th>
+                  <th className="text-center text-sm md:text-base text-color-text">Edit </th>
+                  <th className="text-center text-sm md:text-base text-color-text">Delete </th>
                 </tr>
               </thead>
               <tbody>
@@ -147,7 +147,7 @@ const WorkSheet = () => {
                   <WorkSheetTableRow
                     key={task._id}
                     taskData={task}
-                    index={index}
+                    index={index} refetch={refetch}
                   ></WorkSheetTableRow>
                 ))}
               </tbody>
