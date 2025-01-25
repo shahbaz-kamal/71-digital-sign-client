@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import UseSingleUserData from "../../Hooks/UseSingleUserData";
+import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
+import Swal from "sweetalert2";
 
 const EmployeeListModal = ({
   refetch,
@@ -9,8 +12,11 @@ const EmployeeListModal = ({
   if (!selectedUser) {
     return null;
   }
-
+  const axiosSecure = UseAxiosSecure();
+  const [month, setMonth] = useState(null);
+  const [year, setYear] = useState(null);
   const {
+    _id,
     name,
     email,
     isVerified,
@@ -21,10 +27,47 @@ const EmployeeListModal = ({
   } = selectedUser;
 
   //   handling payment request
-
+  const { userData } = UseSingleUserData();
   const handlePaymentRequest = async (e) => {
     e.preventDefault();
     console.log("payment request triggered");
+
+    const newPawmentData = {
+      paymentId: _id,
+      month,
+      year,
+      employee_name: name,
+      employee_email: email,
+      employee_bankAccount: bankAccount,
+      employee_salary: salary,
+      employee_profilePhoto: profilePhoto,
+      employee_designation: designation,
+      employee_isVerified: isVerified,
+      hr_name: userData.name,
+      hr_email: userData.email,
+      hr_profilePhoto: userData.profilePhoto,
+    };
+    const res = await axiosSecure.post("payment", newPawmentData);
+    if (res.data.message) {
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: `${res.data.message}`,
+        showConfirmButton: false,
+        timer: 3000,
+      });
+      return;
+    }
+    if (res.data.insertedId) {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Payment Process is submitted for authorization",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+      isModalOpen(false)
+    }
   };
   return (
     <dialog open={isModalOpen} className="modal">
@@ -40,7 +83,7 @@ const EmployeeListModal = ({
             </label>
 
             <input
-              defaultValue={salary}
+              value={salary}
               name="salary"
               type="number"
               placeholder="salary"
@@ -55,6 +98,7 @@ const EmployeeListModal = ({
               <span className="label-text text-color-text">Month</span>
             </label>
             <select
+              onChange={(e) => setMonth(e.target.value)}
               name="salary"
               defaultValue="Pick a Month"
               className="select select-ghost w-full bg-white"
@@ -82,7 +126,8 @@ const EmployeeListModal = ({
               <span className="label-text text-color-text">Pick a year</span>
             </label>
             <select
-              name="salary"
+              onChange={(e) => setYear(e.target.value)}
+              name="year"
               defaultValue="Pick a Year"
               className="select select-ghost w-full bg-white"
             >

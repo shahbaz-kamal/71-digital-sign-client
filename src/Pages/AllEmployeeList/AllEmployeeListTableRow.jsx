@@ -101,6 +101,7 @@ const AllEmployeeListTableRow = ({ index, user, refetch }) => {
             </div>
           ) : (
             <button
+              disabled={isFired ? true : false}
               onClick={() => {
                 handleMakeHr(_id);
               }}

@@ -14,6 +14,7 @@ const EmployeeListTableRow = ({ singleEmployee, index, refetch }) => {
     email,
     isVerified,
     bankAccount,
+    isFired,
     salary,
     profilePhoto,
     designation,
@@ -22,8 +23,28 @@ const EmployeeListTableRow = ({ singleEmployee, index, refetch }) => {
   const [selectedUser, setSelectedUser] = useState(null);
 
   const handlePay = async () => {
-    setSelectedUser(singleEmployee);
+    if (!isVerified) {
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: `${name} is not verified yet,Please Wait for The Admin to Verify`,
+        showConfirmButton: false,
+        timer: 2000,
+      });
+      return;
+    }
+    if (isFired) {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: `${name} is Fired! You Can't Pay Him`,
+        showConfirmButton: false,
+        timer: 2000,
+      });
+      return;
+    }
     setIsModalOpen(true);
+    setSelectedUser(singleEmployee);
   };
   const handleVerified = async (_id) => {
     console.log(_id);
@@ -89,7 +110,7 @@ const EmployeeListTableRow = ({ singleEmployee, index, refetch }) => {
         <td className="text-center text-color-text text-sm md:text-base">
           <button
             onClick={handlePay}
-            className="py-1 px-3 rounded-md border border-primary hover:bg-primary  transition ease-in-out duration-300 hover:text-white"
+            className="py-1 px-3 rounded-md bg-red-500 border border-primary hover:bg-primary  transition ease-in-out duration-300 hover:text-white"
           >
             Pay
           </button>
