@@ -10,7 +10,8 @@ import { useQuery } from "@tanstack/react-query";
 const SocialLogin = () => {
   // const { refetch } = useQuery();
   const navigate = useNavigate();
-  const { googleSignInUser, fetchUserData, user, setLoading } = UseAuth();
+  const { googleSignInUser, fetchUserData, user, setLoading, logOutUser } =
+    UseAuth();
   const axiosPublic = UseAxiosPublic();
   const axiosSecure = UseAxiosSecure();
   // name,
@@ -24,6 +25,20 @@ const SocialLogin = () => {
   const handleGoogleSignIn = async () => {
     googleSignInUser()
       .then(async (result) => {
+        // checking if employee is fired or not
+        const response = await axiosPublic.get(
+          `fire/user/${result?.user?.email}`
+        );
+        if (response.data.isFired) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `You are fired. You can't Login`,
+          });
+          logOutUser();
+          return;
+        }
+
         console.log(result.user);
         const email = result?.user?.email;
         const newUser = {
@@ -52,7 +67,6 @@ const SocialLogin = () => {
         }
       })
       .catch((error) => {
-        
         Swal.fire({
           icon: "error",
           title: "Oops...",

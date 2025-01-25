@@ -5,10 +5,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import UseAuth from "../../Hooks/UseAuth";
 import Swal from "sweetalert2";
+import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 
 const Login = () => {
   const navigate = useNavigate();
-  
+  const axiosPublic = UseAxiosPublic();
+
   const {
     logOutUser,
     googleSignInUser,
@@ -19,13 +21,22 @@ const Login = () => {
     loading,
     setUser,
     user,
-
   } = UseAuth();
   const handleLogin = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password);
+    // checking if employee is fired or not
+    const response = await axiosPublic.get(`fire/user/${email}`);
+    if (response.data.isFired) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `You are fired. You can't Login`,
+      });
+      return;
+    }
     signInUser(email, password)
       .then((result) => {
         Swal.fire({
@@ -35,7 +46,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-      
+
         navigate("/");
       })
       .catch((error) => {
@@ -45,7 +56,7 @@ const Login = () => {
           title: "Oops...",
           text: `${error.message}`,
         });
-        setLoading(false)
+        setLoading(false);
       });
   };
   return (

@@ -53,13 +53,13 @@ const Progress = () => {
               onChange={(e) => setEmployeeName(e.target.value)}
               name="name"
               defaultValue="Pick a Name"
-              className="select select-ghost w-full bg-white"
+              className="select select-ghost w-full bg-muted-green bg-opacity-25 "
             >
               <option disabled value="Pick a Name">
                 Pick a Name
               </option>
               {usersData.map((singleUser) => (
-                <option key={singleUser._id} value={singleUser.name}>
+                <option key={singleUser._id} value={singleUser.name} >
                   {singleUser.name}
                 </option>
               ))}
@@ -76,7 +76,7 @@ const Progress = () => {
               onChange={(e) => setMonth(e.target.value)}
               name="month"
               defaultValue="Pick a Month"
-              className="select select-ghost w-full bg-white"
+              className="select select-ghost w-full bg-muted-green bg-opacity-25"
             >
               <option disabled value="Pick a Month">
                 Pick a Month
