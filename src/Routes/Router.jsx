@@ -15,6 +15,7 @@ import AllEmployeeList from "../Pages/AllEmployeeList/AllEmployeeList";
 import Payroll from "../Pages/PayRoll/Payroll";
 import Profile from "../Pages/Profile/Profile";
 import PrivateEmployee from "./PrivateEmployee";
+import PrivateHr from "./PrivateHr";
 
 export const router = createBrowserRouter([
   {
@@ -57,7 +58,14 @@ export const router = createBrowserRouter([
       },
       { path: "payment-history", element: <PaymentHistory></PaymentHistory> },
       // *For hr
-      { path: "employee-list", element: <EmployeeList></EmployeeList> },
+      {
+        path: "employee-list",
+        element: (
+          <PrivateHr>
+            <EmployeeList></EmployeeList>
+          </PrivateHr>
+        ),
+      },
       // *for admin
       {
         path: "all-employee-list",
