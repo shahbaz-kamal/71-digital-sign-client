@@ -10,19 +10,22 @@ import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
 import WorkSheetTableRow from "./WorkSheetTableRow";
+import UseSingleUserData from "../../Hooks/UseSingleUserData";
 
 const WorkSheet = () => {
   const { user, loading: authLoading } = UseAuth();
   const axiosSecure = UseAxiosSecure();
   const [startDate, setStartDate] = useState(new Date());
-
+  const { userData: userDataForName } = UseSingleUserData();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const task = e.target.tasks.value;
     const hoursWorked = e.target.hoursWorked.value;
     const date = startDate;
     const email = user?.email;
-    const newTask = { task, hoursWorked, date, email };
+    const name = userDataForName.name;
+    const profilePhoto = userDataForName.profilePhoto;
+    const newTask = { task, name, profilePhoto, hoursWorked, date, email };
     console.log(newTask);
 
     const res = await axiosSecure.post("work-sheet", newTask);
@@ -125,12 +128,24 @@ const WorkSheet = () => {
               {/* head */}
               <thead>
                 <tr className="">
-                  <th className="text-center text-sm md:text-base text-color-text">#</th>
-                  <th className="text-center text-sm md:text-base text-color-text">Tasks</th>
-                  <th className="text-center text-sm md:text-base text-color-text">Hours Worked</th>
-                  <th className="text-center text-sm md:text-base text-color-text">Date </th>
-                  <th className="text-center text-sm md:text-base text-color-text">Edit </th>
-                  <th className="text-center text-sm md:text-base text-color-text">Delete </th>
+                  <th className="text-center text-sm md:text-base text-color-text">
+                    #
+                  </th>
+                  <th className="text-center text-sm md:text-base text-color-text">
+                    Tasks
+                  </th>
+                  <th className="text-center text-sm md:text-base text-color-text">
+                    Hours Worked
+                  </th>
+                  <th className="text-center text-sm md:text-base text-color-text">
+                    Date{" "}
+                  </th>
+                  <th className="text-center text-sm md:text-base text-color-text">
+                    Edit{" "}
+                  </th>
+                  <th className="text-center text-sm md:text-base text-color-text">
+                    Delete{" "}
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -147,7 +162,8 @@ const WorkSheet = () => {
                   <WorkSheetTableRow
                     key={task._id}
                     taskData={task}
-                    index={index} refetch={refetch}
+                    index={index}
+                    refetch={refetch}
                   ></WorkSheetTableRow>
                 ))}
               </tbody>

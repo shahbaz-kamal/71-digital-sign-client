@@ -7,6 +7,7 @@ const UseSingleUserData = () => {
    const {user}=UseAuth()
    const axiosSecure=UseAxiosSecure()
 
+
    const {data:userData={}}=useQuery({
     queryKey:['singleData',user?.email],
     queryFn: async()=>{

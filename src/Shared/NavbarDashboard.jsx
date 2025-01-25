@@ -158,6 +158,19 @@ const NavbarDashboard = () => {
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
           </li>
         </NavLink>
+        <NavLink
+          to={"/dashboard/progress"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold text-xl md:text-lg"
+              : "text-black text-xl md:text-lg"
+          }
+        >
+          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+           Progress
+            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+          </li>
+        </NavLink>
       </>
     );
   }
