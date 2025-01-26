@@ -55,6 +55,11 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+// getting payment Data
+
+
+
+
   //   *onauth state changed
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TbCoinTaka } from "react-icons/tb";
 import PayRollModal from "./PayRollModal";
+import { format } from "date-fns";
 
 const PayRollTableRow = ({ index, singleData, refetch }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,6 +29,7 @@ const PayRollTableRow = ({ index, singleData, refetch }) => {
     setSelectedData(singleData);
     setIsOpen(true);
   };
+  console.log(selectedData);
   return (
     <>
       {" "}
@@ -74,7 +76,7 @@ const PayRollTableRow = ({ index, singleData, refetch }) => {
             </div>
           </div>
         </td>
-        <td>initially empty</td>
+        <td>{singleData?.paymentDate && format(new Date(singleData?.paymentDate), "PPpp")}</td>
         <th>
           <button
             onClick={handlePayButton}

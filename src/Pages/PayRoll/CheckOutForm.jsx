@@ -3,9 +3,14 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import "./CheckOutForm.css";
 import { useEffect, useState } from "react";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
+import UseAuth from "../../Hooks/UseAuth";
+import Swal from "sweetalert2";
+import { usePaymentContext } from "../../LayOuts/DashboardLayOut";
 
 const CheckoutForm = ({ setIsOpen, selectedData, refetch }) => {
+  const { refetchNavbar } = usePaymentContext();
   const [clientSecret, setClientSecret] = useState("");
+  const { user } = UseAuth();
   const axiosSecure = UseAxiosSecure();
   useEffect(() => {
     getPaymentIntent();
@@ -57,7 +62,7 @@ const CheckoutForm = ({ setIsOpen, selectedData, refetch }) => {
     }
 
     // confirm payment
-    const {paymentIntent} =await stripe.confirmCardPayment(clientSecret, {
+    const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: card,
         billing_details: {
@@ -67,8 +72,28 @@ const CheckoutForm = ({ setIsOpen, selectedData, refetch }) => {
       },
     });
     console.log(paymentIntent);
-    if(paymentIntent.status==='succeeded'){
-        console.log("success")
+    if (paymentIntent.status === "succeeded") {
+      const updatedPaymentInfo = {
+        authorizedBy: user?.email,
+        trxId: paymentIntent.id,
+        isAuthorized: true,
+      };
+      const res = await axiosSecure.patch(
+        `update/paymentCollection/${selectedData._id}`,
+        updatedPaymentInfo
+      );
+      if (res.data.modifiedCount > 0) {
+        refetchNavbar();
+        refetch();
+        setIsOpen(false);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `Salary for ${selectedData.employee_name} is sent`,
+          showConfirmButton: false,
+          timer: 3000,
+        });
+      }
     }
   };
 
@@ -90,7 +115,8 @@ const CheckoutForm = ({ setIsOpen, selectedData, refetch }) => {
           },
         }}
       />
-      <button onClick={handleSubmit}
+      <button
+        onClick={handleSubmit}
         type="submit"
         disabled={!stripe}
         className="btn btn-error text-white w-full"

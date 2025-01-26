@@ -6,7 +6,6 @@ import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import PayRollTableRow from "./PayRollTableRow";
 
 const Payroll = () => {
-
   const { user } = UseAuth();
   const axiosSecure = UseAxiosSecure();
   // getting payment Data
@@ -33,13 +32,13 @@ const Payroll = () => {
           <table className="table">
             {/* head */}
             <thead>
-              <tr>
+              <tr className="text-color-text text-base md:text-lg">
                 <th>#</th>
                 <th>Employee</th>
                 <th>Month</th>
                 <th>Year</th>
                 <th>Requested By</th>
-                <th>Payment Date</th>
+                <th>Payment Date & Time</th>
                 <th>Action</th>
               </tr>
             </thead>
