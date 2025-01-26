@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { TbCoinTaka } from "react-icons/tb";
+import PayRollModal from "./PayRollModal";
 
 const PayRollTableRow = ({ index, singleData, refetch }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedData, setSelectedData] = useState(null);
   const {
     paymentId,
     month,
@@ -20,52 +23,77 @@ const PayRollTableRow = ({ index, singleData, refetch }) => {
     trxId,
     authorizedBy,
   } = singleData;
+
+  const handlePayButton = async () => {
+    setSelectedData(singleData);
+    setIsOpen(true);
+  };
   return (
-    <tr>
-      <th>{index + 1}</th>
-      <td>
-        <div className="flex items-center gap-3">
-          <div className="avatar">
-            <div className="mask mask-squircle h-12 w-12">
-              <img
-                src={employee_profilePhoto}
-                alt="Avatar Tailwind CSS Component"
-              />
+    <>
+      {" "}
+      <tr>
+        <th>{index + 1}</th>
+        <td>
+          <div className="flex items-center gap-3">
+            <div className="avatar">
+              <div className="mask mask-squircle h-12 w-12">
+                <img
+                  src={employee_profilePhoto}
+                  alt="Avatar Tailwind CSS Component"
+                />
+              </div>
+            </div>
+            <div>
+              <div className="font-bold">{employee_name}</div>
+              <div className="text-sm opacity-50 flex items-center gap-1 text-primary font-bold">
+                <span>Salary: {employee_salary}</span>{" "}
+                <span>
+                  <TbCoinTaka />
+                </span>
+              </div>
             </div>
           </div>
-          <div>
-            <div className="font-bold">{employee_name}</div>
-            <div className="text-sm opacity-50 flex items-center gap-1 text-primary font-bold">
-              <span>Salary: {employee_salary}</span>{" "}
-              <span>
-                <TbCoinTaka />
-              </span>
+        </td>
+        <td>{month}</td>
+        <td>{year}</td>
+        <td>
+          <div className="flex items-center gap-3">
+            <div className="avatar">
+              <div className="mask mask-squircle h-12 w-12">
+                <img
+                  src={hr_profilePhoto}
+                  alt="Avatar Tailwind CSS Component"
+                />
+              </div>
+            </div>
+            <div>
+              <div className="font-bold">{hr_name}</div>
+              <div className="text-sm opacity-50 flex items-center gap-1 text-primary font-bold">
+                <span>Designation: HR</span>{" "}
+              </div>
             </div>
           </div>
-        </div>
-      </td>
-      <td>{month}</td>
-      <td>{year}</td>
-      <td>
-        <div className="flex items-center gap-3">
-          <div className="avatar">
-            <div className="mask mask-squircle h-12 w-12">
-              <img src={hr_profilePhoto} alt="Avatar Tailwind CSS Component" />
-            </div>
-          </div>
-          <div>
-            <div className="font-bold">{hr_name}</div>
-            <div className="text-sm opacity-50 flex items-center gap-1 text-primary font-bold">
-              <span>Designation: HR</span>{" "}
-            </div>
-          </div>
-        </div>
-      </td>
-      <td>initially empty</td>
-      <th>
-        <button disabled={isAuthorized} className="btn btn-error  text-white">Pay</button>
-      </th>
-    </tr>
+        </td>
+        <td>initially empty</td>
+        <th>
+          <button
+            onClick={handlePayButton}
+            disabled={isAuthorized}
+            className="btn btn-error  text-white"
+          >
+            Pay
+          </button>
+        </th>
+      </tr>
+      {selectedData && (
+        <PayRollModal
+          selectedData={selectedData}
+          isOpen={isOpen}
+          refetch={refetch}
+          setIsOpen={setIsOpen}
+        ></PayRollModal>
+      )}
+    </>
   );
 };
 
