@@ -83,7 +83,7 @@ const PayRollTableRow = ({ index, singleData, refetch }) => {
             disabled={isAuthorized}
             className="btn btn-error  text-white"
           >
-            Pay
+               {isAuthorized ? "Paid" : "Pay"}
           </button>
         </th>
       </tr>
