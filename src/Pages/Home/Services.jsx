@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 import Headline from "../../Shared/Headline";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 import ServiceCard from "./ServiceCard";
+import { useQuery } from "@tanstack/react-query";
 
 const Services = () => {
-  const [services, setServices] = useState([]);
   const axiosPublic = UseAxiosPublic();
 
-  useEffect(() => {
-    const fetchServicesData = async () => {
+  const { data: services = [] } = useQuery({
+    queryKey: ["services"],
+    queryFn: async () => {
       const res = await axiosPublic.get("services");
-      setServices(res.data);
-    };
-    fetchServicesData();
-  }, []);
+      return res.data;
+    },
+  });
 
   return (
     <div>

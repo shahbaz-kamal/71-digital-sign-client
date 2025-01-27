@@ -11,25 +11,19 @@ import { Pagination } from "swiper/modules";
 import Headline from "../../Shared/Headline";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 import TestimonialSlide from "./TestimonialSlide";
+import { useQuery } from "@tanstack/react-query";
 
 const Testimonial = () => {
   const axiosPublic = UseAxiosPublic();
-  const [testimonials, setTestimonials] = useState([]);
 
-  useEffect(() => {
-    const fetchTestimonialData = async () => {
-      try {
-        const res = await axiosPublic.get("testimonials");
-        setTestimonials(res.data);
-      } catch (error) {
-        console.error("Error fetching testimonials:", error);
-      }
-    };
-
-    fetchTestimonialData();
-  }, [axiosPublic]); // Correct dependency array
   // console.log(testimonials);
-
+  const { data: testimonials = [] } = useQuery({
+    queryKey: ["testimonial-data"],
+    queryFn: async () => {
+      const res = await axiosPublic.get("testimonials");
+      return res.data;
+    },
+  });
   return (
     <div>
       <header>

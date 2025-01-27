@@ -21,11 +21,13 @@ import PrivateAdmin from "./PrivateAdmin";
 import Details from "../Pages/EmployeeList/Details";
 import PrivateCommon from "./PrivateCommon";
 import Messages from "../Pages/Messages/Messages";
+import Error from "../Pages/Error/Error";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayOut></MainLayOut>,
+    errorElement: <Error></Error>,
     children: [
       { path: "/", element: <Home></Home> },
       { path: "/portfolio", element: <Portfolio></Portfolio> },
@@ -42,6 +44,7 @@ export const router = createBrowserRouter([
         <DashboardLayOut></DashboardLayOut>
       </PrivateRoute>
     ),
+    errorElement: <Error></Error>,
     children: [
       // for all users
       {
