@@ -66,7 +66,8 @@ const EmployeeListModal = ({
         showConfirmButton: false,
         timer: 2000,
       });
-      isModalOpen(false)
+      setIsModalOpen(false)
+      refetch()
     }
   };
   return (

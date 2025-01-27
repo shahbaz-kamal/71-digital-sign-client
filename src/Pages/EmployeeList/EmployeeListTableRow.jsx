@@ -5,6 +5,7 @@ import { RxCross2 } from "react-icons/rx";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
 import EmployeeListModal from "./EmployeeListModal";
+import { Link, useNavigate } from "react-router-dom";
 
 const EmployeeListTableRow = ({ singleEmployee, index, refetch }) => {
   const axiosSecure = UseAxiosSecure();
@@ -61,6 +62,7 @@ const EmployeeListTableRow = ({ singleEmployee, index, refetch }) => {
       refetch();
     }
   };
+
   return (
     <>
       <tr>
@@ -116,9 +118,12 @@ const EmployeeListTableRow = ({ singleEmployee, index, refetch }) => {
           </button>
         </td>
         <td className="text-center text-color-text text-sm md:text-base">
-          <button className="py-1 px-3 rounded-md bg-secondary border border-secondary hover:bg-muted-green hover:border-muted-green hover:text-color-text transition ease-in-out duration-300">
-            Details
-          </button>
+          <Link to={`/dashboard/details/${email}`}>
+       
+            <button className="py-1 px-3 rounded-md bg-secondary border border-secondary hover:bg-muted-green hover:border-muted-green hover:text-color-text transition ease-in-out duration-300">
+              Details
+            </button>
+          </Link>
         </td>
       </tr>
       {singleEmployee && (

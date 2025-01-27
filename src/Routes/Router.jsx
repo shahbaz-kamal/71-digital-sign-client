@@ -18,6 +18,7 @@ import PrivateEmployee from "./PrivateEmployee";
 import PrivateHr from "./PrivateHr";
 import Progress from "../Pages/Progress/Progress";
 import PrivateAdmin from "./PrivateAdmin";
+import Details from "../Pages/EmployeeList/Details";
 
 export const router = createBrowserRouter([
   {
@@ -65,6 +66,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateHr>
             <EmployeeList></EmployeeList>
+          </PrivateHr>
+        ),
+      },
+      {
+        path: "details/:email",
+        element: (
+          <PrivateHr>
+            <Details></Details>
           </PrivateHr>
         ),
       },
