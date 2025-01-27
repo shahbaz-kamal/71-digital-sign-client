@@ -4,14 +4,40 @@ import Headline from "../../Shared/Headline";
 import Lottie from "lottie-react";
 import contactUs from "../../assets/contactUs.json";
 import { CiLocationOn, CiMail, CiPhone } from "react-icons/ci";
+import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
+import Swal from "sweetalert2";
 
 const ContactUs = () => {
-  const email = "example@gmail.com";
+  const axiosPublic = UseAxiosPublic();
 
   const handleEmailClick = () => {
     window.location.href = `mailto:${email}`;
   };
-
+  const handleSend = async (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const subject = e.target.subject.value;
+    const phone = e.target.phone.value;
+    const message = e.target.message.value;
+    const newMessage = { name, email, subject, phone, message };
+    try {
+      const res = await axiosPublic.post("client/message", newMessage);
+      if (res.data.insertedId) {
+        Swal.fire({
+          title: "Good job!",
+          text: "Thank you for reaching out to us! Your message has been successfully sent. Our team will get back to you as soon as possible.",
+          icon: "success",
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: `${error.message}`,
+      });
+    }
+  };
   return (
     <div className="container mx-auto px-4 py-12">
       <Helmet>
@@ -31,7 +57,10 @@ const ContactUs = () => {
 
         {/* Right Section: Form & Address */}
         <div className="w-full flex-1 p-4">
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-4 text-color-text bg-muted-green bg-opacity-25 rounded-xl p-6">
+          <form
+            onSubmit={handleSend}
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 text-color-text bg-muted-green bg-opacity-25 rounded-xl p-6"
+          >
             {/* Name */}
             <div>
               <label className="block text-lg font-medium mb-2">Name</label>
@@ -56,26 +85,27 @@ const ContactUs = () => {
                 required
               />
             </div>
-            {/* Subject */}
-            <div>
-              <label className="block text-lg font-medium mb-2">Subject</label>
-              <input
-                type="text"
-                name="subject"
-                placeholder="Enter your address"
-                className="input input-bordered w-full"
-                required
-              />
-            </div>
+          
             {/* Phone Number */}
             <div>
               <label className="block text-lg font-medium mb-2">
                 Phone Number
               </label>
               <input
-                type="text"
+                type="number"
                 name="phone"
                 placeholder="Enter your phone number"
+                className="input input-bordered w-full"
+                required
+              />
+            </div>
+              {/* Subject */}
+              <div>
+              <label className="block text-lg font-medium mb-2">Subject</label>
+              <input
+                type="text"
+                name="subject"
+                placeholder="Enter your address"
                 className="input input-bordered w-full"
                 required
               />
@@ -99,7 +129,7 @@ const ContactUs = () => {
                 type="submit"
                 className="btn btn-primary bg-secondary border border-secondary hover:bg-muted-green hover:border-muted-green hover:text-color-text transition ease-in-out duration-300 font-medium text-lg md:text-xl text-white"
               >
-                Submit
+                Send Us Message
               </button>
             </div>
           </form>

@@ -19,6 +19,8 @@ import PrivateHr from "./PrivateHr";
 import Progress from "../Pages/Progress/Progress";
 import PrivateAdmin from "./PrivateAdmin";
 import Details from "../Pages/EmployeeList/Details";
+import PrivateCommon from "./PrivateCommon";
+import Messages from "../Pages/Messages/Messages";
 
 export const router = createBrowserRouter([
   {
@@ -100,6 +102,15 @@ export const router = createBrowserRouter([
           <PrivateAdmin>
             <Payroll></Payroll>{" "}
           </PrivateAdmin>
+        ),
+      },
+      // *for admin & hr
+      {
+        path: "message",
+        element: (
+          <PrivateCommon>
+            <Messages></Messages>
+          </PrivateCommon>
         ),
       },
     ],

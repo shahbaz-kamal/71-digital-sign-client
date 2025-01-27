@@ -19,14 +19,30 @@ const DashboardLayOut = () => {
       return res.data;
     },
   });
+  const { data: messageData = [], refetch: refetchMessage } = useQuery({
+    queryKey: ["messages-collection", user?.email],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`messages`);
+      return res.data;
+    },
+  });
+
 
   const refreshedPaymentRequestData = paymentRequestData.filter(
     (item) => item.isAuthorized === false
   );
-  console.log(refreshedPaymentRequestData);
-  const paymentRequestInfo = { refreshedPaymentRequestData, refetchNavbar };
+  const refreshedMessageData = messageData.filter(
+    (singleMessage) => singleMessage.isRead === false
+  );
+
+  const info = {
+    refreshedPaymentRequestData,
+    refetchNavbar,
+    refreshedMessageData,
+    refetchMessage,
+  };
   return (
-    <PaymentContext.Provider value={paymentRequestInfo}>
+    <PaymentContext.Provider value={info}>
       <div>
         <section>
           <NavbarDashboard></NavbarDashboard>

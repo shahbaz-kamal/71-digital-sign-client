@@ -8,13 +8,16 @@ import UseAuth from "../Hooks/UseAuth";
 import Swal from "sweetalert2";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
-import UseAxiosPublic from "../Hooks/UseAxiosPublic";
+
 import UseRole from "../Hooks/UseRole";
 import { usePaymentContext } from "../LayOuts/DashboardLayOut";
 
 const NavbarDashboard = () => {
-  const { refreshedPaymentRequestData } = usePaymentContext();
-  console.log(refreshedPaymentRequestData);
+  const { refreshedPaymentRequestData, refreshedMessageData } =
+    usePaymentContext();
+
+  // messageData
+
   const axiosSecure = UseAxiosSecure();
   // const [userData, setUserData] = useState({});
   const { user, logOutUser, userData, setUserData, setLoading } = UseAuth();
@@ -173,6 +176,24 @@ const NavbarDashboard = () => {
             Progress
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
           </li>
+        </NavLink>{" "}
+        <NavLink
+          to={"/dashboard/message"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold text-xl md:text-lg"
+              : "text-black text-xl md:text-lg"
+          }
+        >
+          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+            Messages{" "}
+            {refreshedMessageData.length > 0 ? (
+              <span>({refreshedMessageData.length})</span>
+            ) : (
+              <span>(0)</span>
+            )}
+            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+          </li>
         </NavLink>
       </>
     );
@@ -231,7 +252,30 @@ const NavbarDashboard = () => {
           }
         >
           <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
-            Payroll {refreshedPaymentRequestData.length>0? <span>({refreshedPaymentRequestData.length})</span>:<span>(0)</span>}
+            Payroll{" "}
+            {refreshedPaymentRequestData.length > 0 ? (
+              <span>({refreshedPaymentRequestData.length})</span>
+            ) : (
+              <span>(0)</span>
+            )}
+            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+          </li>
+        </NavLink>
+        <NavLink
+          to={"/dashboard/message"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold text-xl md:text-lg"
+              : "text-black text-xl md:text-lg"
+          }
+        >
+          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+            Messages
+            {refreshedMessageData.length > 0 ? (
+              <span>({refreshedMessageData.length})</span>
+            ) : (
+              <span>(0)</span>
+            )}
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
           </li>
         </NavLink>
