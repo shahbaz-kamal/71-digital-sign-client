@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Shared/SocialLogin";
 import Headline from "../../Shared/Headline";
@@ -8,11 +8,13 @@ import Swal from "sweetalert2";
 import { imageUpload } from "../../Utilities/imageUpload";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const navigate = useNavigate();
   const axiosPublic = UseAxiosPublic();
   const axiosSecure = UseAxiosSecure();
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     logOutUser,
@@ -221,17 +223,23 @@ const Register = () => {
           />
         </div>
         {/* password */}
-        <div className="form-control">
+        <div className="form-control relative">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
           <input
             name="password"
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="password"
             className="input input-bordered"
             required
           />
+          <div
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute bottom-3 right-4"
+          >
+            {!showPassword ? <FaEye size={22} /> : <FaEyeSlash size={22} />}
+          </div>
         </div>
         <div className="text-center mt-2 text-color-text md:col-span-2">
           <p className="text-base md:text-lg">
@@ -249,7 +257,6 @@ const Register = () => {
         </div>
         <div className="divider md:col-span-2">OR</div>
         <div className="md:col-span-2">
-          
           <SocialLogin></SocialLogin>
         </div>
       </form>

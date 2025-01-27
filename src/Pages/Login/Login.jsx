@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Headline from "../../Shared/Headline";
 import SocialLogin from "../../Shared/SocialLogin";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,10 +6,12 @@ import { Helmet } from "react-helmet-async";
 import UseAuth from "../../Hooks/UseAuth";
 import Swal from "sweetalert2";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const navigate = useNavigate();
   const axiosPublic = UseAxiosPublic();
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     logOutUser,
@@ -86,17 +88,23 @@ const Login = () => {
             required
           />
         </div>
-        <div className="form-control">
+        <div className="form-control relative">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
           <input
             name="password"
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="password"
             className="input input-bordered"
             required
           />
+          <div
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute bottom-3 right-4"
+          >
+            {!showPassword ? <FaEye size={22} /> : <FaEyeSlash size={22} />}
+          </div>
         </div>
         <div className="text-center mt-2 text-color-text">
           <p className="text-base md:text-lg">
