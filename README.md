@@ -14,13 +14,19 @@
 
 ## 🔗 Live Link
 
-<!-- <h3 align="left"></h3> -->
+
 
 ###
 
 <p align="left">https://71-digital-sign.netlify.app/</p>
 
 ###
+## 👨‍💼 Admin Info
+###
+<p align="left">Admin Email: shahbaz@kamal.com</p>
+<p align="left">Admin Password: 123456Aa</p>
+
+
 
 ## ✨ Features:
 
