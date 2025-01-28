@@ -61,7 +61,7 @@ const SocialLogin = () => {
 
             text: "Google Login Successfull",
             footer:
-              '<p >You need to update your profile from "dashboard/profile" for getting salary & then HR will Cross check your information<p>',
+              '<p >If you did not updated your profile then please update your profile from "dashboard/profile" for getting salary & then HR will Cross check your information<p>',
           });
           navigate("/");
         }
