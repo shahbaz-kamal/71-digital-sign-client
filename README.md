@@ -1,5 +1,5 @@
 <div align="center">
-  <img height="400" src="https://i.ibb.co.com/k3nDpmh/git-Hub-banner.jpg"  />
+  <img height="400" src="https://raw.githubusercontent.com/Programming-Hero-Web-Course4/b10a12-client-side-shahbaz-kamal/refs/heads/main/src/assets/gitHub_banner.jpg?token=GHSAT0AAAAAAC53URV2PPJY46U6SLALRMIGZ4YOTHA"  />
 </div>
 
 ###
@@ -88,6 +88,7 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" height="40" alt="nodejs logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" height="40" alt="mongodb logo"  />
+  <img src="http://skillicons.dev/icons?i=express" height="40" alt="express logo"/>
 </div>
 
 ###
@@ -98,7 +99,9 @@
 
 ###
 
-<h3 align="left">"@emotion/react": "^11.13.5",<br>    "dotenv": "^16.4.7",<br>    "firebase": "^11.0.2",<br>    "lottie-react": "^2.4.0",<br>    "react": "^18.3.1",<br>    "react-awesome-reveal": "^4.2.14",<br>    "react-dom": "^18.3.1",<br>    "react-icons": "^5.4.0",<br>    "react-router-dom": "^7.0.2",<br>    "react-stars": "^2.2.5",<br>    "react-tooltip": "^5.28.0",<br>    "sweetalert2": "^11.14.5",<br>    "swiper": "^11.1.15"</h3>
+<h3 align="left">"@stripe/react-stripe-js": "^3.1.1",<br>    "@stripe/stripe-js": "^5.5.0",<br>    "@tanstack/react-query": "^5.64.2",<br>    "@tanstack/react-table": "^8.20.6",<br>    "aos": "^2.3.4",<br>    "axios": "^1.7.9",<br>    "date-fns": "^4.1.0",<br>    "firebase": "^11.2.0",<br>    "framer-motion": "^12.0.1",<br>    "localforage": "^1.10.0",<br>    "lottie-react": "^2.4.1",<br>    "match-sorter": "^8.0.0",<br>    "react": "^18.3.1",<br>    "react-datepicker": "^7.6.0",<br>    "react-dom": "^18.3.1",<br>    "react-helmet": "^6.1.0",<br>    "react-helmet-async": "^2.0.5",<br>    "react-icons": "^5.4.0",<br>    "react-rating-stars-component": "^2.2.0",<br>    "react-router-dom": "^7.1.3",<br>    "react-tooltip": "^5.28.0",<br>    "recharts": "^2.15.0",<br>    "sort-by": "^1.2.0",<br>    "sweetalert2": "^11.15.10",<br>    "swiper": "^11.2.1"</h3>
+
+###
 
 ###
 
@@ -112,7 +115,7 @@
 1. First clone the project by running
 
 ```bash
-  git clone https://github.com/shahbaz-kamal/sportify-hub-client.git
+  git clone https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-shahbaz-kamal.git
 ```
 
 2. Change your directory to the cloned folder by
@@ -136,6 +139,8 @@ VITE_projectId=your_project_id
 VITE_storageBucket=your_storage_bucket
 VITE_messagingSenderId=your_messagingSenderId
 VITE_appId=your_api_id
+ VITE_IMAGE_HOSTING_KEY=your_image_hosting_ke
+  VITE_STRIPE_PUBLIC_KEY=your_stripe_key
 ```
 
 5. Run the following command and open the website locally on port 5173:
