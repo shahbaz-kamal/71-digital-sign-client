@@ -8,14 +8,14 @@ const UseSingleUserData = () => {
    const axiosSecure=UseAxiosSecure()
 
 
-   const {data:userData={}}=useQuery({
+   const {data:userData={},refetch}=useQuery({
     queryKey:['singleData',user?.email],
     queryFn: async()=>{
         const res=await axiosSecure.get(`user/${user?.email}`)
         return res.data
     }
    })
-   return {userData}
+   return {userData,refetch}
 };
 
 export default UseSingleUserData;

@@ -1,13 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import UseAuth from "../../Hooks/UseAuth";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import UseSingleUserData from "../../Hooks/UseSingleUserData";
 import covorPhoto from "../../assets/profile_cover.webp";
+import ProfileModal from "./ProfileModal";
 const Profile = () => {
   const { user } = UseAuth();
-
-  const { userData } = UseSingleUserData();
-  console.log(userData);
+  const [isOpen, setIsOpen] = useState(false);
+  const { userData, refetch } = UseSingleUserData();
+  const handleClick = () => {
+    setIsOpen(true);
+  };
   return (
     <div className="flex flex-col items-center bg-background ">
       {/* Cover Photo */}
@@ -40,17 +43,18 @@ const Profile = () => {
         </p>
         {userData.role !== "admin" && (
           <p className="text-neutral">
-            Status from Admin:{" "}
+            Status from HR :
             <span
               className={`font-bold ${
-                userData?.status === "pending"
-                  ? "text-accent"
-                  : userData?.status === "active"
+                userData?.isVerified === true
+                  ? "text-secondary"
+                  : userData?.isVerified === false
                   ? "text-primary"
                   : "text-muted-red"
               }`}
             >
-              {userData?.status || "Status"}
+              {userData?.isVerified && " Verified"}
+              {userData?.isVerified || " Not Verified"}
             </span>
           </p>
         )}
@@ -87,9 +91,23 @@ const Profile = () => {
 
       {/* Update Profile Button */}
       <div className="mt-6">
-        <button className="px-6 py-2 rounded-lg bg-primary text-background font-semibold shadow-md hover:bg-secondary transition-all">
+        <button
+          onClick={handleClick}
+          className="px-6 py-2 rounded-lg bg-secondary text-background font-semibold shadow-md hover:bg-muted-green hover:text-black transition-all"
+        >
           Update Profile
         </button>
+      </div>
+      {/* modal for updating profile */}
+      <div>
+        {userData && (
+          <ProfileModal
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            userData={userData}
+            refetch={refetch}
+          ></ProfileModal>
+        )}
       </div>
     </div>
   );

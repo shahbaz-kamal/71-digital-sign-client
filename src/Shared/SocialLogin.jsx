@@ -57,11 +57,11 @@ const SocialLogin = () => {
           res?.data?.message == "User already Exists in the Database"
         ) {
           Swal.fire({
-            position: "top-end",
             icon: "success",
-            title: "Google Login is Successfull",
-            showConfirmButton: false,
-            timer: 1500,
+
+            text: "Google Login Successfull",
+            footer:
+              '<p >You need to update your profile from "dashboard/profile" for getting salary & then HR will Cross check your information<p>',
           });
           navigate("/");
         }

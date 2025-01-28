@@ -87,7 +87,7 @@ const Register = () => {
         console.log("from register page----->", result.user);
         updateUser(name, email)
           .then(async () => {
-            console.log("updated User Successfully");
+  
 
             // adding user info to db
             const res = await axiosSecure.post(`users/${email}`, newUser);
