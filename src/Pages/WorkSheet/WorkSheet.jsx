@@ -110,7 +110,8 @@ const WorkSheet = () => {
             name="date"
             selected={startDate}
             onChange={(date) => setStartDate(date)}
-            className="input input-bordered w-full bg-white"
+            className="input input-bordered w-full bg-white z-50"
+            portalId="root" 
           />
         </div>
 
