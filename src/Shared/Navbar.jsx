@@ -60,7 +60,10 @@ const Navbar = () => {
             : "text-black text-xl md:text-lg"
         }
       >
-        <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+        <li
+          onClick={handleHideNav}
+          className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+        >
           Home
           {/* Custom underline */}
           <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
@@ -74,7 +77,10 @@ const Navbar = () => {
             : "text-black text-xl md:text-lg"
         }
       >
-        <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+        <li
+          onClick={handleHideNav}
+          className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+        >
           PortFolio {/* Custom underline */}
           <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
         </li>
@@ -88,7 +94,10 @@ const Navbar = () => {
               : "text-black text-xl md:text-lg"
           }
         >
-          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          <li
+            onClick={handleHideNav}
+            className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+          >
             Dashboard {/* Custom underline */}
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
           </li>
@@ -102,7 +111,10 @@ const Navbar = () => {
             : "text-black text-xl md:text-lg"
         }
       >
-        <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+        <li
+          onClick={handleHideNav}
+          className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+        >
           Contact Us {/* Custom underline */}
           <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
         </li>
@@ -115,7 +127,10 @@ const Navbar = () => {
             : "text-black text-xl md:text-lg"
         }
       >
-        <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+        <li
+          onClick={handleHideNav}
+          className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+        >
           About Us {/* Custom underline */}
           <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
         </li>
@@ -125,7 +140,7 @@ const Navbar = () => {
   return (
     <div className="">
       {/* first div */}
-      <div className="bg-primary backdrop-blur-xl  bg-opacity-40 py-2 fixed top-0 z-50 w-full">
+      <div className="bg-secondary backdrop-blur-xl  bg-opacity-70 py-2 fixed top-0 z-[60] w-full">
         <nav className="flex w-full md:w-10/12 mx-auto items-center justify-between px-2 md:px-0">
           {/* logo */}
           <div className="flex items-center gap-3">
@@ -137,7 +152,7 @@ const Navbar = () => {
             </h3>
           </div>
           {/* navbar ends */}
-          <div className="flex items-center ">
+          <div className="flex items-center">
             {/* navitems */}
             <ul className="hidden lg:flex items-center  gap-4 mr-10">
               {links}
@@ -214,8 +229,11 @@ const Navbar = () => {
       </div>
       {/* second div */}
       {showMobileNavItems ? (
-        <nav id="mobile-navitems" className="w-full mx-auto lg:hidden fixed">
-          <ul className=" flex flex-col items-center bg-primary bg-opacity-15  rounded-lg  z-10 mt-[87px]">
+        <nav
+          id="mobile-navitems"
+          className="w-full mx-auto lg:hidden fixed z-40  "
+        >
+          <ul className="p-6 flex flex-col items-center bg-secondary bg-opacity-50 backdrop-blur-xl rounded-lg  z-100 mt-[75px]">
             {links}
           </ul>
         </nav>

@@ -4,8 +4,8 @@ import UseAuth from "./UseAuth";
 import { useEffect } from "react";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:7800/",
-  // baseURL: "https://71-digital-sign-server.vercel.app/",
+  // baseURL: "http://localhost:7800/",
+  baseURL: "https://71-digital-sign-server.vercel.app/",
 });
 const UseAxiosSecure = () => {
   const { logOutUser } = UseAuth();

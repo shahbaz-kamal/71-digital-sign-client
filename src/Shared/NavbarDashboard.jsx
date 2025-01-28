@@ -71,7 +71,10 @@ const NavbarDashboard = () => {
               : "text-black text-xl md:text-lg"
           }
         >
-          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          <li
+            onClick={handleHideNav}
+            className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+          >
             Home
             {/* Custom underline */}
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
@@ -85,7 +88,10 @@ const NavbarDashboard = () => {
               : "text-black text-xl md:text-lg"
           }
         >
-          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          <li
+            onClick={handleHideNav}
+            className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+          >
             Profile
             {/* Custom underline */}
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
@@ -99,7 +105,10 @@ const NavbarDashboard = () => {
               : "text-black text-xl md:text-lg"
           }
         >
-          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          <li
+            onClick={handleHideNav}
+            className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+          >
             Work Sheet{/* Custom underline */}
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
           </li>
@@ -112,7 +121,10 @@ const NavbarDashboard = () => {
               : "text-black text-xl md:text-lg"
           }
         >
-          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          <li
+            onClick={handleHideNav}
+            className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+          >
             Payment History
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
           </li>
@@ -131,7 +143,10 @@ const NavbarDashboard = () => {
               : "text-black text-xl md:text-lg"
           }
         >
-          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          <li
+            onClick={handleHideNav}
+            className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+          >
             Home
             {/* Custom underline */}
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
@@ -145,7 +160,10 @@ const NavbarDashboard = () => {
               : "text-black text-xl md:text-lg"
           }
         >
-          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          <li
+            onClick={handleHideNav}
+            className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+          >
             Profile
             {/* Custom underline */}
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
@@ -159,7 +177,10 @@ const NavbarDashboard = () => {
               : "text-black text-xl md:text-lg"
           }
         >
-          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          <li
+            onClick={handleHideNav}
+            className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+          >
             Employee List
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
           </li>
@@ -172,7 +193,10 @@ const NavbarDashboard = () => {
               : "text-black text-xl md:text-lg"
           }
         >
-          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          <li
+            onClick={handleHideNav}
+            className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+          >
             Progress
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
           </li>
@@ -185,7 +209,10 @@ const NavbarDashboard = () => {
               : "text-black text-xl md:text-lg"
           }
         >
-          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          <li
+            onClick={handleHideNav}
+            className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+          >
             Messages{" "}
             {refreshedMessageData.length > 0 ? (
               <span>({refreshedMessageData.length})</span>
@@ -209,7 +236,10 @@ const NavbarDashboard = () => {
               : "text-black text-xl md:text-lg"
           }
         >
-          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          <li
+            onClick={handleHideNav}
+            className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+          >
             Home
             {/* Custom underline */}
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
@@ -223,7 +253,10 @@ const NavbarDashboard = () => {
               : "text-black text-xl md:text-lg"
           }
         >
-          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          <li
+            onClick={handleHideNav}
+            className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+          >
             Profile
             {/* Custom underline */}
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
@@ -238,7 +271,10 @@ const NavbarDashboard = () => {
               : "text-black text-xl md:text-lg"
           }
         >
-          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          <li
+            onClick={handleHideNav}
+            className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+          >
             All Employee List
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
           </li>
@@ -251,7 +287,10 @@ const NavbarDashboard = () => {
               : "text-black text-xl md:text-lg"
           }
         >
-          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          <li
+            onClick={handleHideNav}
+            className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+          >
             Payroll{" "}
             {refreshedPaymentRequestData.length > 0 ? (
               <span>({refreshedPaymentRequestData.length})</span>
@@ -269,7 +308,10 @@ const NavbarDashboard = () => {
               : "text-black text-xl md:text-lg"
           }
         >
-          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
+          <li
+            onClick={handleHideNav}
+            className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out"
+          >
             Messages
             {refreshedMessageData.length > 0 ? (
               <span>({refreshedMessageData.length})</span>
@@ -302,21 +344,7 @@ const NavbarDashboard = () => {
             <ul className="hidden lg:flex items-center  gap-4 mr-10">
               {links}
             </ul>
-            {/* login /logOut buttonbutton */}
-            {/* {user && user?.email ? (
-              <button
-                onClick={handleLogOut}
-                className=" text-base md:text-lg py-2 border border-primary rounded-xl px-5 hover:bg-primary hover:text-white transition duration-300 ease-in-out font-semibold "
-              >
-                Log Out
-              </button>
-            ) : (
-              <Link to={"/login"}>
-                <button className=" text-base md:text-lg py-2 border border-primary rounded-xl px-5 hover:bg-primary hover:text-white transition duration-300 ease-in-out font-semibold ">
-                  Log In
-                </button>
-              </Link>
-            )} */}
+
             {!(user && user?.email) ? (
               <Link to={"/login"}>
                 <button className=" text-base md:text-lg py-2 border border-primary rounded-xl px-5 hover:bg-primary hover:text-white transition duration-300 ease-in-out font-semibold ">
@@ -374,8 +402,11 @@ const NavbarDashboard = () => {
       </div>
       {/* second div */}
       {showMobileNavItems ? (
-        <nav id="mobile-navitems" className="w-full mx-auto lg:hidden fixed">
-          <ul className=" flex flex-col items-center bg-primary bg-opacity-15  rounded-lg  z-10 mt-[87px]">
+        <nav
+          id="mobile-navitems"
+          className="w-full mx-auto lg:hidden fixed backdrop-blur-xl z-40"
+        >
+          <ul className=" flex flex-col items-center bg-muted-red  bg-opacity-50  rounded-lg  z-100 mt-[85px]">
             {links}
           </ul>
         </nav>
