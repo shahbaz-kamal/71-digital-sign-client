@@ -19,7 +19,7 @@ const EmployeeList = () => {
   const { user } = UseAuth();
   const { role } = UseRole();
   const axiosSecure = UseAxiosSecure();
-  const { data: employeeData = [] ,refetch} = useQuery({
+  const { data: employeeData = [], refetch } = useQuery({
     queryKey: ["only-employee-data"],
     queryFn: async () => {
       const res = await axiosSecure(`all-employee-list?employee=employee`);
@@ -36,16 +36,16 @@ const EmployeeList = () => {
           title={"Employee List"}
           subTitle={"Tracking Excellence in Every Role"}
         ></Headline>
-             <Helmet>
-              <title>Employee List || 71 Digital SIgn</title>
-            </Helmet>
+        <Helmet>
+          <title>Employee List || 71 Digital SIgn</title>
+        </Helmet>
       </header>
       <section>
         {" "}
         <div className="overflow-x-auto bg-muted-green bg-opacity-25 rounded-2xl w-full mx-auto p-6">
           <table className="table">
             {/* head */}
-            <thead data-aos="fade-right">
+            <thead>
               <tr className="">
                 <th className="text-center text-sm md:text-base text-color-text">
                   #
@@ -73,12 +73,13 @@ const EmployeeList = () => {
                 </th>
               </tr>
             </thead>
-            <tbody data-aos="fade-left">
+            <tbody>
               {employeeData.map((singleEmployee, index) => (
                 <EmployeeListTableRow
                   key={singleEmployee._id}
                   singleEmployee={singleEmployee}
-                  index={index} refetch={refetch}
+                  index={index}
+                  refetch={refetch}
                 ></EmployeeListTableRow>
               ))}
               {/* {tasks.map((task, index) => (

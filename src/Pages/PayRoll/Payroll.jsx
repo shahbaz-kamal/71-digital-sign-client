@@ -66,7 +66,7 @@ const Payroll = () => {
           <div className="overflow-x-auto bg-muted-red bg-opacity-25 rounded-xl p-6">
             <table className="table">
               {/* head */}
-              <thead data-aos="fade-left">
+              <thead>
                 <tr className="text-color-text text-base md:text-lg">
                   <th>#</th>
                   <th>Employee</th>
@@ -77,7 +77,7 @@ const Payroll = () => {
                   <th>Action</th>
                 </tr>
               </thead>
-              <tbody data-aos="fade-right">
+              <tbody>
                 {/* row 1 */}
                 {paymentData.map((singleData, index) => (
                   <PayRollTableRow

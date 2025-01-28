@@ -59,11 +59,11 @@ const WorkSheet = () => {
           title={"Your Work Sheet"}
           subTitle={"Help Us Track Your Work"}
         ></Headline>
-             <Helmet>
-              <title>Work Sheet || 71 Digital SIgn</title>
-            </Helmet>
+        <Helmet>
+          <title>Work Sheet || 71 Digital SIgn</title>
+        </Helmet>
       </header>
-      <form data-aos="fade-right"
+      <form
         onSubmit={handleSubmit}
         className="card-body bg-muted-green bg-opacity-25 rounded-2xl w-full mx-auto grid grid-cols-2 md:grid-cols-4 "
       >
@@ -110,8 +110,8 @@ const WorkSheet = () => {
             name="date"
             selected={startDate}
             onChange={(date) => setStartDate(date)}
-            className="input input-bordered w-full bg-white z-50"
-            portalId="root" 
+            className="input input-bordered w-full bg-white"
+            portalId="root"
           />
         </div>
 
@@ -127,7 +127,7 @@ const WorkSheet = () => {
       {/* table */}
       <section className="mt-7 md:mt-10">
         <Headline title={"Your Work History"}></Headline>
-        <div data-aos="fade-left">
+        <div>
           <div className="overflow-x-auto bg-muted-green bg-opacity-25 rounded-2xl w-full mx-auto p-6">
             <table className="table">
               {/* head */}
