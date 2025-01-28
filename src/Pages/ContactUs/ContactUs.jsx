@@ -51,12 +51,12 @@ const ContactUs = () => {
       </header>
       <div className="flex flex-col lg:flex-row items-center justify-between">
         {/* Left Section: Image */}
-        <div className="w-[50%] mx-auto lg:w-[35%] p-4">
+        <div data-aos="fade-right" className="w-[50%] mx-auto lg:w-[35%] p-4">
           <Lottie animationData={contactUs}></Lottie>
         </div>
 
         {/* Right Section: Form & Address */}
-        <div className="w-full flex-1 p-4">
+        <div data-aos="fade-left" className="w-full flex-1 p-4">
           <form
             onSubmit={handleSend}
             className="grid grid-cols-1 md:grid-cols-2 gap-4 text-color-text bg-muted-green bg-opacity-25 rounded-xl p-6"

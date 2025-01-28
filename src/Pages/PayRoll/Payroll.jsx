@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import PayRollTableRow from "./PayRollTableRow";
 import PayrollCard from "./PayrollCard";
+import { Helmet } from "react-helmet";
 
 const Payroll = () => {
   const { user } = UseAuth();
@@ -37,9 +38,15 @@ const Payroll = () => {
           title={"Payroll"}
           subTitle={"Authorize Pending Payroll Transactions"}
         ></Headline>
+        <Helmet>
+          <title>Payroll || 71 Digital Sign</title>
+        </Helmet>
       </header>
       {/* grid & card btn */}
-      <section className="flex justify-center gap-2 mb-7 md:mb-10">
+      <section
+        data-aos="fade-right"
+        className="flex justify-center gap-2 mb-7 md:mb-10"
+      >
         <button
           onClick={handleTableView}
           className={`btn ${tableView ? "btn-error" : `bg-gray-200`}`}
@@ -59,7 +66,7 @@ const Payroll = () => {
           <div className="overflow-x-auto bg-muted-red bg-opacity-25 rounded-xl p-6">
             <table className="table">
               {/* head */}
-              <thead>
+              <thead data-aos="fade-left">
                 <tr className="text-color-text text-base md:text-lg">
                   <th>#</th>
                   <th>Employee</th>
@@ -70,7 +77,7 @@ const Payroll = () => {
                   <th>Action</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody data-aos="fade-right">
                 {/* row 1 */}
                 {paymentData.map((singleData, index) => (
                   <PayRollTableRow

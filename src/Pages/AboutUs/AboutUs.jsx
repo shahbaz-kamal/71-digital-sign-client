@@ -18,11 +18,11 @@ const AboutUs = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center">
             {/* Left: Image */}
-            <div className="md:w-[40%]">
+            <div data-aos="fade-right" className="md:w-[40%]">
               <Lottie animationData={aboutUs}></Lottie>
             </div>
             {/* Right: Content */}
-            <div className="md:w-1/2 md:pl-10 mt-6 md:mt-0 flex flex-col items-center md:items-start">
+            <div data-aos="fade-left" className="md:w-1/2 md:pl-10 mt-6 md:mt-0 flex flex-col items-center md:items-start">
               <p className="text-gray-600 mb-4">
                 Welcome to our website! We specialize in providing top-notch
                 services tailored to your needs. With a dedicated team of

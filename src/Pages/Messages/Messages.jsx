@@ -3,6 +3,7 @@ import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Headline from "../../Shared/Headline";
 import MessageCard from "./MessageCard";
+import { Helmet } from "react-helmet";
 
 const Messages = () => {
   const axiosSecure = UseAxiosSecure();
@@ -20,10 +21,13 @@ const Messages = () => {
         <Headline
           title={"Messages"}
           subTitle={"Messages Received from Clients"}
-        />
+        />{" "}
+        <Helmet>
+          <title>Messages || 71 Digital SIgn</title>
+        </Helmet>
       </header>
       <div className="mt-6 space-y-4">
-        {messages.map((message,index) => (
+        {messages.map((message, index) => (
           <MessageCard
             key={message._id}
             message={message}

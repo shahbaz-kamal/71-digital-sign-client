@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import UseAuth from "../../Hooks/UseAuth";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import ProgressTableRow from "./ProgressTableRow";
+import { Helmet } from "react-helmet";
 
 const Progress = () => {
   const [month, setMonth] = useState("");
@@ -41,9 +42,12 @@ const Progress = () => {
           title={"Progress"}
           subTitle={"Task Progress Tracker"}
         ></Headline>
+             <Helmet>
+              <title>Progress || 71 Digital SIgn</title>
+            </Helmet>
       </header>
       <section>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div data-aos="fade-right" className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Month */}
           <div className="form-control">
             <label className="label">
@@ -100,7 +104,7 @@ const Progress = () => {
           <div className="overflow-x-auto bg-muted-green rounded-xl p-6 bg-opacity-25">
             <table className="table">
               {/* head */}
-              <thead>
+              <thead data-aos="fade-left">
                 <tr className="text-base md:text-lg text-color-text">
                   <th>#</th>
                   <th>Employee</th>
@@ -110,7 +114,7 @@ const Progress = () => {
                   <th>Date </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody data-aos="fade-right">
                 {/* row 1 */}
                 {filteredData.map((item, index) => (
                   <ProgressTableRow

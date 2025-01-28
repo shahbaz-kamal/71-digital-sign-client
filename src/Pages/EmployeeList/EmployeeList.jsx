@@ -13,6 +13,7 @@ import {
 import { CiBank, CiMail, CiUser } from "react-icons/ci";
 import { RxCrossCircled } from "react-icons/rx";
 import EmployeeListTableRow from "./EmployeeListTableRow";
+import { Helmet } from "react-helmet";
 
 const EmployeeList = () => {
   const { user } = UseAuth();
@@ -35,13 +36,16 @@ const EmployeeList = () => {
           title={"Employee List"}
           subTitle={"Tracking Excellence in Every Role"}
         ></Headline>
+             <Helmet>
+              <title>Employee List || 71 Digital SIgn</title>
+            </Helmet>
       </header>
       <section>
         {" "}
         <div className="overflow-x-auto bg-muted-green bg-opacity-25 rounded-2xl w-full mx-auto p-6">
           <table className="table">
             {/* head */}
-            <thead>
+            <thead data-aos="fade-right">
               <tr className="">
                 <th className="text-center text-sm md:text-base text-color-text">
                   #
@@ -69,7 +73,7 @@ const EmployeeList = () => {
                 </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody data-aos="fade-left">
               {employeeData.map((singleEmployee, index) => (
                 <EmployeeListTableRow
                   key={singleEmployee._id}

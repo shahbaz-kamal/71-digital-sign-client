@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import PaymentHistoryTableRow from "./PaymentHistoryTableRow";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { data } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const PaymentHistory = () => {
   const { user } = UseAuth();
@@ -73,14 +74,16 @@ const PaymentHistory = () => {
           title={"Payment History"}
           subTitle={"Track All Your Payments"}
         ></Headline>
+        <Helmet>
+          <title>Payment History || 71 Digital SIgn</title>
+        </Helmet>
       </header>
       <section>
         <div className="overflow-x-auto bg-muted-green bg-opacity-25 rounded-2xl w-full mx-auto p-6">
           <table className="table">
             {/* head */}
-            <thead>
+            <thead data-aos="fade-right">
               <tr className="">
-                
                 <th className="text-center text-sm md:text-base text-color-text">
                   Month
                 </th>
@@ -88,14 +91,14 @@ const PaymentHistory = () => {
                   Year
                 </th>
                 <th className="text-center text-sm md:text-base text-color-text">
-                  Ammount
+                  Amount
                 </th>
                 <th className="text-center text-sm md:text-base text-color-text">
                   Transaction Id
                 </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody data-aos="fade-left">
               {/* {historyData.map((singleData, index) => (
                 <PaymentHistoryTableRow
                   key={singleData._id}
@@ -116,7 +119,10 @@ const PaymentHistory = () => {
       </section>
       {/* select no. of pages */}
       {count > 5 && (
-        <section className="flex gap-2 justify-center mt-6 items-center">
+        <section
+          data-aos="fade-right"
+          className="flex gap-2 justify-center mt-6 items-center"
+        >
           <p className="font-medium text-color-text text-sm md:text-base">
             No. of Items Per Page:
           </p>
@@ -134,7 +140,10 @@ const PaymentHistory = () => {
         </section>
       )}
       {count > 5 && (
-        <section className="flex gap-2 justify-center mt-6">
+        <section
+          data-aos="fade-left"
+          className="flex gap-2 justify-center mt-6"
+        >
           <button
             onClick={handlePrevious}
             className="bg-muted-green bg-opacity-25 p-4 rounded-md"

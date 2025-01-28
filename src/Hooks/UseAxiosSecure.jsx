@@ -5,6 +5,7 @@ import { useEffect } from "react";
 
 const axiosSecure = axios.create({
   baseURL: "http://localhost:7800/",
+  // baseURL: "https://71-digital-sign-server.vercel.app/",
 });
 const UseAxiosSecure = () => {
   const { logOutUser } = UseAuth();
@@ -12,7 +13,7 @@ const UseAxiosSecure = () => {
 
   useEffect(() => {
     // request iterceptors to add authorization header for every secure call
-   const requestInterceptor= axiosSecure.interceptors.request.use(
+    const requestInterceptor = axiosSecure.interceptors.request.use(
       function (config) {
         const token = localStorage.getItem("access-token");
         config.headers.authorization = `Bearer ${token}`;
@@ -26,7 +27,7 @@ const UseAxiosSecure = () => {
 
     //   intercepts 401 & 403 and kick you out
 
-    const responseInterceptor=axiosSecure.interceptors.response.use(
+    const responseInterceptor = axiosSecure.interceptors.response.use(
       function (response) {
         return response;
       },
@@ -41,11 +42,12 @@ const UseAxiosSecure = () => {
         return Promise.reject(error);
       }
     );
-   // Cleanup interceptors when the component unmounts
-   return () => {
-    axiosSecure.interceptors.request.eject(requestInterceptor);
-    axiosSecure.interceptors.response.eject(responseInterceptor);
-  }; }, [logOutUser, navigate]);
+    // Cleanup interceptors when the component unmounts
+    return () => {
+      axiosSecure.interceptors.request.eject(requestInterceptor);
+      axiosSecure.interceptors.response.eject(responseInterceptor);
+    };
+  }, [logOutUser, navigate]);
   return axiosSecure;
 };
 

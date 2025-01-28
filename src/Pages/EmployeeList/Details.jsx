@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Chart from "./Chart";
+import { Helmet } from "react-helmet";
 
 const Details = () => {
   const { email: slugEmail } = useParams();
@@ -28,7 +29,10 @@ const Details = () => {
           subTitle={
             "Visualize Monthly Salary Trends for Better Financial Insights"
           }
-        ></Headline>
+        ></Headline>{" "}
+        <Helmet>
+          <title>Employee Salary || 71 Digital SIgn</title>
+        </Helmet>
       </header>
       <section className="w-full">
         <Chart chartData={salaryData}></Chart>

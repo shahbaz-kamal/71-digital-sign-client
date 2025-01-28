@@ -5,10 +5,14 @@ import Testimonial from "./Testimonial";
 import Process from "./Process";
 import { FaQ } from "react-icons/fa6";
 import FAQ from "./FAQ";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   return (
     <div className="space-y-7 md:space-y-10">
+         <Helmet>
+              <title>Home || 71 Digital SIgn</title>
+            </Helmet>
       <section>
         <Banner></Banner>
       </section>

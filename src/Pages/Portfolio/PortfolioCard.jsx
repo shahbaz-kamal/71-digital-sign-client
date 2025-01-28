@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const PortfolioCard = ({ data }) => {
   const { title, description, image, date, client } = data;
   return (
-    <div className="card bg-muted-green bg-opacity-25 shadow-xl">
+    <div data-aos='fade-right' className="card bg-muted-green bg-opacity-25 shadow-xl">
       <figure className="px-10 pt-10 w-full h-[300px]">
         <img
           src={image}
