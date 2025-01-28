@@ -1,5 +1,5 @@
 <div align="center">
-  <img height="400" src="https://raw.githubusercontent.com/Programming-Hero-Web-Course4/b10a12-client-side-shahbaz-kamal/refs/heads/main/src/assets/gitHub_banner.jpg?token=GHSAT0AAAAAAC53URV2PPJY46U6SLALRMIGZ4YOTHA"  />
+  <img height="400" src="https://i.ibb.co.com/k3nDpmh/git-Hub-banner.jpg"  />
 </div>
 
 ###
@@ -37,7 +37,7 @@
 
 3. **Role-Based Access Control**
 
-   - Users can register as Employees or HRs via email/password authentication. 
+   - Users can register as Employees or HRs via email/password authentication.
    - Private routes ensure data privacy and secure access.
 
 4. **Employee Work Record Management**
@@ -47,7 +47,6 @@
 5. **Salary Payment History**
 
    - Employees can view their salary payment history, with details like month, amount, and transaction ID. HR can add, update, and track payment status.
-   
 
 6. **HR Management Interface**
 
@@ -155,11 +154,13 @@ npm run dev
 </p>
 
 ###
+
 1. First clone the project by running
 
 ```bash
   git clone https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-shahbaz-kamal.git
 ```
+
 2. Change your directory to the cloned folder by
 
 ```bash
@@ -171,8 +172,9 @@ npm run dev
 ```bash
 npm install
 ```
-4. Put your Mongodb uri in the constant named uri. 
-5. Create a MongoDB user by keeping username and password collected &  create a .env file in the root directory and put the following code:
+
+4. Put your Mongodb uri in the constant named uri.
+5. Create a MongoDB user by keeping username and password collected & create a .env file in the root directory and put the following code:
 
 ```bash
 DB_USER=your_mongodb_username
@@ -180,22 +182,25 @@ DB_PASS=your_mongodb_Password
 ACCESS_TOKEN_SECRET=token_secret_for_jwt_token
 PAYMENT_SECRET_KEY=stripe_secret_key
 ```
-6. Put the following code instead of  <db_username>:
+
+6. Put the following code instead of <db_username>:
 
 ```bash
 ${process.env.DB_USER}
 ```
-7. Put the following code instead of  <db_password>:
+
+7. Put the following code instead of <db_password>:
 
 ```bash
 ${process.env.DB_PASS}
 ```
-8. Run the following command and open the website locally on port 5000:
 
+8. Run the following command and open the website locally on port 5000:
 
 ```bash
 npm start
 ```
+
 9. visit :
 
 ```bash
