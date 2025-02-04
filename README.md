@@ -207,7 +207,7 @@ ${process.env.DB_PASS}
 npm start
 ```
 
-9. visit :
+9. Run :
 
 ```bash
 npm start
