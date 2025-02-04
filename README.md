@@ -120,7 +120,7 @@
 1. First clone the project by running
 
 ```bash
-  git clone https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-shahbaz-kamal.git
+  git clone https://github.com/shahbaz-kamal/71-digital-sign-client.git
 ```
 
 2. Change your directory to the cloned folder by
@@ -164,7 +164,7 @@ npm run dev
 1. First clone the project by running
 
 ```bash
-  git clone https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-shahbaz-kamal.git
+  git clone https://github.com/shahbaz-kamal/71-digital-sign-server.git
 ```
 
 2. Change your directory to the cloned folder by
