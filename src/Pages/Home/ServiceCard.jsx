@@ -5,7 +5,7 @@ const ServiceCard = ({ service }) => {
   const { _id, image, description, title } = service;
   return (
     <div
-      data-aos="fade-right"
+      // data-aos="fade-right"
       className="card bg-muted-green bg-opacity-25 shadow-xl "
     >
       <figure className="px-6 pt-6 h-40 w-full">

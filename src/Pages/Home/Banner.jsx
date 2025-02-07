@@ -10,7 +10,7 @@ const Banner = () => {
   return (
     <div
       id="banner"
-      className="flex flex-col-reverse md:flex-row md:items-center justify-between min-h-[70vh] px-5 md:px-10 bg-neutral bg-opacity-80 rounded-lg py-4 md:py-8 "
+      className="flex flex-col-reverse md:flex-row items-center justify-between min-h-[70vh] px-5 md:px-10 bg-neutral bg-opacity-80 rounded-lg py-4 md:py-8 w-full "
     >
       {/* text  */}
       <div className="w-full md:w-1/2 flex flex-col gap-5 items-center md:items-start">
@@ -38,7 +38,7 @@ const Banner = () => {
         data-aos="fade-left"
         className="grid grid-cols-1 w-full md:w-1/2 gap-6"
       >
-        <div className="w-[80%] mx-auto">
+        <div className="w-full max-w-[90%] md:max-w-md mx-auto object-contain">
           <img src={heroImage} alt="" />
         </div>
       </div>

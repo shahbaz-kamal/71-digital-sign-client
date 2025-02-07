@@ -9,11 +9,11 @@ import { Helmet } from "react-helmet";
 
 const Home = () => {
   return (
-    <div className="space-y-7 md:space-y-10">
+    <div className="space-y-7 md:space-y-10 w-full">
          <Helmet>
               <title>Home || 71 Digital SIgn</title>
             </Helmet>
-      <section>
+      <section className="w-full">
         <Banner></Banner>
       </section>
       <section>

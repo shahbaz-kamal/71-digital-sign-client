@@ -7,7 +7,7 @@ import UseAuth from "../Hooks/UseAuth";
 import Loading from "../Shared/Loading";
 
 const MainLayOut = () => {
-  const {user,loading}=UseAuth()
+  const { user, loading } = UseAuth();
   useEffect(() => {
     Aos.init({
       duration: 1200, // Animation duration in milliseconds
@@ -16,19 +16,20 @@ const MainLayOut = () => {
     });
   }, []);
 
-  if(loading){
-    return <Loading></Loading>
+  if (loading) {
+    return <Loading></Loading>;
   }
   return (
-    <div>
-   
-      <section className="">
+    <div className="w-full">
+      <section className="bg-secondary backdrop-blur-xl  bg-opacity-70 py-2 fixed top-0 z-[60] w-full">
         <Navbar></Navbar>
       </section>
       <section className="w-11/12 md:w-10/12 mx-auto pt-28 -z-0">
         <Outlet></Outlet>
       </section>
-      <section><Footer></Footer></section>
+      <section className="w-full">
+        <Footer></Footer>
+      </section>
     </div>
   );
 };

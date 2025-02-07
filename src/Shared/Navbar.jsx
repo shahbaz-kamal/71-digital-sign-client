@@ -138,10 +138,10 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="">
+    <div className="w-11/12 md:w-10/12 mx-auto">
       {/* first div */}
-      <div className="bg-secondary backdrop-blur-xl  bg-opacity-70 py-2 fixed top-0 z-[60] w-full">
-        <nav className="flex w-full md:w-10/12 mx-auto items-center justify-between px-2 md:px-0">
+      <div className=" ">
+        <nav className="flex  items-center justify-between px-2 md:px-0">
           {/* logo */}
           <div className="flex items-center gap-3">
             <div className="w-12 md:w-14 ">
@@ -157,21 +157,7 @@ const Navbar = () => {
             <ul className="hidden lg:flex items-center  gap-4 mr-10">
               {links}
             </ul>
-            {/* login /logOut buttonbutton */}
-            {/* {user && user?.email ? (
-              <button
-                onClick={handleLogOut}
-                className=" text-base md:text-lg py-2 border border-primary rounded-xl px-5 hover:bg-primary hover:text-white transition duration-300 ease-in-out font-semibold "
-              >
-                Log Out
-              </button>
-            ) : (
-              <Link to={"/login"}>
-                <button className=" text-base md:text-lg py-2 border border-primary rounded-xl px-5 hover:bg-primary hover:text-white transition duration-300 ease-in-out font-semibold ">
-                  Log In
-                </button>
-              </Link>
-            )} */}
+
             {!(user && user?.email) ? (
               <Link to={"/login"}>
                 <button className=" text-base md:text-lg py-2 border border-primary rounded-xl px-5 hover:bg-primary hover:text-white transition duration-300 ease-in-out font-semibold ">
@@ -211,7 +197,7 @@ const Navbar = () => {
                 Log Out
               </button>
             )}
-            <div className="text-black lg:hidden ml-4 flex">
+            <div className="text-black lg:hidden ml-4 flex z-50">
               {showMobileNavItems ? (
                 <span onClick={handleHideNav}>
                   <RxCross1 size={22} />
@@ -225,21 +211,21 @@ const Navbar = () => {
           </div>
           {/* login button */}
           {/* Mobile Section menu section */}
+          {/* second div */}
+          {showMobileNavItems ? (
+            <nav
+              id="mobile-navitems"
+              className=" w-[87%] mt-[163px] lg:hidden fixed z-40  "
+            >
+              <ul className="p-6 flex flex-col items-center bg-secondary  backdrop-blur-sm rounded-lg  z-100 mt-[75px]">
+                {links}
+              </ul>
+            </nav>
+          ) : (
+            ""
+          )}
         </nav>
       </div>
-      {/* second div */}
-      {showMobileNavItems ? (
-        <nav
-          id="mobile-navitems"
-          className="w-full mx-auto lg:hidden fixed z-40  "
-        >
-          <ul className="p-6 flex flex-col items-center bg-secondary bg-opacity-50 backdrop-blur-xl rounded-lg  z-100 mt-[75px]">
-            {links}
-          </ul>
-        </nav>
-      ) : (
-        ""
-      )}
     </div>
   );
 };
