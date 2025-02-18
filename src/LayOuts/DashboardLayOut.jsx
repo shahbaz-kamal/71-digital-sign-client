@@ -79,8 +79,8 @@ const DashboardLayOut = () => {
           <section
             className={`${
               showDashboardNav
-                ? "min-h-screen  w-80 bg-secondary bg-opacity-60 fixed z-10 "
-                : "min-h-screen  w-20 bg-secondary bg-opacity-60 fixed z-10"
+                ? "min-h-screen  w-80 bg-secondary bg-opacity-70 fixed z-10 "
+                : "min-h-screen  w-20 bg-secondary bg-opacity-70 fixed z-10"
             }`}
           >
             <Sidebar></Sidebar>
@@ -93,10 +93,10 @@ const DashboardLayOut = () => {
                 : "flex flex-col flex-1 ml-20"
             } `}
           >
-            <section className=" bg-yellow-400 bg-opacity-60 fixed w-full">
+            <section className=" bg-secondary bg-opacity-70 fixed w-full h-20 backdrop-blur-xl flex flex-col justify-center z-10">
               <NavbarDashboard></NavbarDashboard>
             </section>
-            <section className=" mx-auto pt-28 space-y-7 md:space-y-10">
+            <section className="w-11/12  mx-auto pt-28 space-y-7 md:space-y-10 ">
               <Outlet></Outlet>
             </section>
           </div>

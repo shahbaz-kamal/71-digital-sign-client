@@ -47,7 +47,8 @@ const Sidebar = () => {
               Home
             </span>
             {/* Custom underline */}
-            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+            {showDashboardNav &&   <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>}
+          
           </li>
         </NavLink>
         <NavLink
@@ -68,7 +69,7 @@ const Sidebar = () => {
               Profile
             </span>
             {/* Custom underline */}
-            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+            {showDashboardNav &&   <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>}
           </li>
         </NavLink>
         <NavLink
@@ -88,7 +89,7 @@ const Sidebar = () => {
               Work Sheet
             </span>
             {/* Custom underline */}
-            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+            {showDashboardNav &&   <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>}
           </li>
         </NavLink>
         <NavLink
@@ -106,7 +107,7 @@ const Sidebar = () => {
             <span className={`${showDashboardNav ? "block" : "hidden"}`}>
               Payment history
             </span>
-            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+            {showDashboardNav &&   <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>}
           </li>
         </NavLink>
       </>
@@ -151,7 +152,7 @@ const Sidebar = () => {
               Profile
             </span>
             {/* Custom underline */}
-            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+            {showDashboardNav &&   <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>}
           </li>
         </NavLink>
         <NavLink
@@ -169,7 +170,7 @@ const Sidebar = () => {
             <span className={`${showDashboardNav ? "block" : "hidden"}`}>
               Employee List
             </span>
-            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+            {showDashboardNav &&   <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>}
           </li>
         </NavLink>
         <NavLink
@@ -187,7 +188,7 @@ const Sidebar = () => {
             <span className={`${showDashboardNav ? "block" : "hidden"}`}>
               Progress
             </span>
-            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+            {showDashboardNav &&   <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>}
           </li>
         </NavLink>{" "}
         <NavLink
@@ -210,7 +211,7 @@ const Sidebar = () => {
                 <span>(0)</span>
               )}
             </span>
-            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+            {showDashboardNav &&   <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>}
           </li>
         </NavLink>
       </>
@@ -235,7 +236,7 @@ const Sidebar = () => {
               Home
             </span>
             {/* Custom underline */}
-            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+            {showDashboardNav &&   <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>}
           </li>
         </NavLink>
         <NavLink
@@ -255,7 +256,7 @@ const Sidebar = () => {
               Profile
             </span>
             {/* Custom underline */}
-            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+            {showDashboardNav &&   <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>}
           </li>
         </NavLink>
 
@@ -274,7 +275,7 @@ const Sidebar = () => {
             <span className={`${showDashboardNav ? "block" : "hidden"}`}>
               All Employee List
             </span>
-            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+            {showDashboardNav &&   <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>}
           </li>
         </NavLink>
         <NavLink
@@ -300,7 +301,7 @@ const Sidebar = () => {
                 <span>(0)</span>
               )}
             </span>
-            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+            {showDashboardNav &&   <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>}
           </li>
         </NavLink>
         <NavLink
@@ -311,8 +312,11 @@ const Sidebar = () => {
               : "text-black text-xl md:text-lg"
           }
         >
-          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out">
-            <span className={`${showDashboardNav ? "block" : "hidden"}`}>
+          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out flex items-center justify-center">
+           
+          <span className="mr-2">
+              <LuMessageSquareMore />
+            </span>{" "} <span className={`${showDashboardNav ? "block" : "hidden"}`}>
               Messages
               {refreshedMessageData.length > 0 ? (
                 <span className="ml-1">({refreshedMessageData.length})</span>
@@ -321,7 +325,7 @@ const Sidebar = () => {
               )}
             </span>
 
-            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+            {showDashboardNav &&   <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>}
           </li>
         </NavLink>
       </>

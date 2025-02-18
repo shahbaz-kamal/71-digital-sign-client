@@ -328,7 +328,7 @@ const NavbarDashboard = () => {
     <div className="">
       {/* first div */}
       <div className=" ">
-        <nav className="flex w-full md:w-10/12 mx-auto items-center justify-between px-2 md:px-0">
+        <nav className="flex w-full md:w-10/12 mx-auto items-center justify-between px-2 md:px-0 ">
           {/* logo */}
          {/* mavbarstarts  */}
         {/* navbar center */}

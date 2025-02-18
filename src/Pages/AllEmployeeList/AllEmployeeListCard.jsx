@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import makeHr from "../../assets/makeHr.webp";
-import { MdEdit, MdOutlineVerified } from "react-icons/md";
-import { div, img } from "framer-motion/client";
+import { MdEdit } from "react-icons/md";
 import AllEmployeeListModal from "./AllEmployeeListModal";
-import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
+import { deleteUser } from "firebase/auth";
 import Swal from "sweetalert2";
-const AllEmployeeListTableRow = ({ index, user, refetch }) => {
+import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
+
+const AllEmployeeListCard = ({ index, user, refetch }) => {
+    const axiosSecure=UseAxiosSecure()
   const {
     _id,
     name,
@@ -17,13 +18,13 @@ const AllEmployeeListTableRow = ({ index, user, refetch }) => {
     profilePhoto,
     isFired,
   } = user;
-  const axiosSecure = UseAxiosSecure();
-  const [isOpen, setIsOpen] = useState(false);
   const [selectedData, setSelectedData] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
   const handleEditSalary = async () => {
     setSelectedData(user);
     setIsOpen(true);
   };
+
   const handleMakeHr = async (_id) => {
     console.log(_id);
     const id = _id;
@@ -57,7 +58,7 @@ const AllEmployeeListTableRow = ({ index, user, refetch }) => {
         if (res.data.modifiedCount > 0) {
           refetch();
           Swal.fire({
-            title: "Fired",
+            title: "Fired!",
             text: "This Employee is fired",
             icon: "success",
           });
@@ -67,23 +68,24 @@ const AllEmployeeListTableRow = ({ index, user, refetch }) => {
   };
   return (
     <>
-      <tr>
-        <th>{index + 1}</th>
-        <td>
-          <div className="flex items-center gap-3">
-            <div className="avatar">
-              <div className="mask mask-squircle h-12 w-12">
-                <img src={profilePhoto} />
-              </div>
-            </div>
-            <div>
-              <div className="font-bold">{name}</div>
-              <div className="text-sm opacity-50">{designation}</div>
+      <div className="card bg-secondary bg-opacity-20  shadow-xl gap-6 p-6">
+        <div className="flex items-center gap-3">
+          <div className="avatar">
+            <div className="mask mask-squircle h-14 w-14">
+              <img src={profilePhoto} />
             </div>
           </div>
-        </td>
-        <td>{email}</td>
-        <td className="flex  items-center gap-2">
+          <div>
+            <h3 className="font-bold">{name}</h3>
+            <p className="text-sm opacity-50">{email}</p>
+            <p className="text-sm opacity-50">
+              {designation ? designation : "Employee"}
+            </p>
+          </div>
+        </div>
+        <hr />
+        <div className="flex  items-center gap-2">
+          <span className="font-bold text-base">Salary: </span>
           <span>{salary}</span>
           <span
             onClick={handleEditSalary}
@@ -93,34 +95,26 @@ const AllEmployeeListTableRow = ({ index, user, refetch }) => {
           >
             <MdEdit size={20} />
           </span>
-        </td>
-        <td>
-          {role === "hr" || role === "admin" ? (
-            <div className="text-green-500">
-              <MdOutlineVerified size={24} />
-            </div>
-          ) : (
-            <button
-              disabled={isFired ? true : false}
-              onClick={() => {
-                handleMakeHr(_id);
-              }}
-              className="btn btn-error bg-primary"
-            >
-              Make HR
-            </button>
-          )}
-        </td>
-        <th>
+        </div>
+        {/* make hr
+         */}
+        <div className="flex justify-between">
           <button
-            disabled={isFired ? true : false}
+            disabled={role === "hr" ? true : false}
+            onClick={() => handleMakeHr(_id)}
+            className="btn btn-error bg-primary"
+          >
+            Make HR
+          </button>
+          <button
+            disabled={isFired}
             onClick={() => handleFire(_id)}
             className="btn btn-error bg-primary"
           >
-            {isFired ? "Fired" : "Fire"}
+            Fire
           </button>
-        </th>
-      </tr>
+        </div>
+      </div>
       {user && (
         <AllEmployeeListModal
           isOpen={isOpen}
@@ -133,4 +127,4 @@ const AllEmployeeListTableRow = ({ index, user, refetch }) => {
   );
 };
 
-export default AllEmployeeListTableRow;
+export default AllEmployeeListCard;
