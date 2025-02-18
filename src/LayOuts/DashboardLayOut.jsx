@@ -5,6 +5,7 @@ import Footer from "../Shared/Footer";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import UseAuth from "../Hooks/UseAuth";
+import Sidebar from "../Shared/Sidebar";
 const PaymentContext = createContext();
 
 const DashboardLayOut = () => {
@@ -27,7 +28,6 @@ const DashboardLayOut = () => {
     },
   });
 
-
   const refreshedPaymentRequestData = paymentRequestData.filter(
     (item) => item.isAuthorized === false
   );
@@ -43,17 +43,24 @@ const DashboardLayOut = () => {
   };
   return (
     <PaymentContext.Provider value={info}>
-      <div>
-        <section>
-          <NavbarDashboard></NavbarDashboard>
-        </section>
-        <section className="w-11/12 md:w-10/12 mx-auto pt-28 space-y-7 md:space-y-10">
-          <Outlet></Outlet>
-        </section>
-        <section>
-          <Footer></Footer>
-        </section>
-      </div>
+      <>
+        <div className="flex w-full mx gap-6">
+          <section className="min-h-screen w-20 md:w-80 bg-secondary bg-opacity-60">
+            <Sidebar></Sidebar>
+          </section>
+          {/* right div */}
+          <div className="flex flex-col flex-1 ">
+            <section className=" bg-secondary bg-opacity-60 ">
+              <NavbarDashboard></NavbarDashboard>
+            </section>
+            <section className=" mx-auto pt-28 space-y-7 md:space-y-10">
+              <Outlet></Outlet>
+            </section>
+          </div>
+        </div>
+
+        <section>{/* <Footer></Footer> */}</section>
+      </>
     </PaymentContext.Provider>
   );
 };

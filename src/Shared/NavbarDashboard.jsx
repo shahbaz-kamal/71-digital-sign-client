@@ -327,7 +327,7 @@ const NavbarDashboard = () => {
   return (
     <div className="">
       {/* first div */}
-      <div className="bg-primary backdrop-blur-xl  bg-opacity-40 py-2 fixed top-0 z-50 w-full">
+      <div className=" ">
         <nav className="flex w-full md:w-10/12 mx-auto items-center justify-between px-2 md:px-0">
           {/* logo */}
           <div className="flex items-center gap-3">
