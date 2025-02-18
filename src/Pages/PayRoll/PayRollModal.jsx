@@ -8,7 +8,7 @@ const PayRollModal = ({ isOpen, setIsOpen, selectedData, refetch }) => {
   console.log(selectedData);
   return (
     <dialog open={isOpen} className="modal">
-      <div className="modal-box bg-muted-red ">
+      <div className="modal-box  ">
         <form className="card-body   rounded-2xl w-full mx-auto grid grid-cols-1 ">
           {/* Salary worked */}
           <div className="form-control">
@@ -57,7 +57,7 @@ const PayRollModal = ({ isOpen, setIsOpen, selectedData, refetch }) => {
  
             <button
               onClick={() => setIsOpen(false)}
-              className="btn btn-error text-white"
+              className="btn btn-error text-white bg-primary"
             >
               Close
             </button>

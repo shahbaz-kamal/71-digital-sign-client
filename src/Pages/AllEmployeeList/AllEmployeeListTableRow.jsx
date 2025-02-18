@@ -115,7 +115,7 @@ const AllEmployeeListTableRow = ({ index, user, refetch }) => {
           <button
             disabled={isFired ? true : false}
             onClick={() => handleFire(_id)}
-            className="btn btn-error bg-primary"
+            className="btn btn-error bg-primary text-white"
           >
             {isFired ? "Fired" : "Fire"}
           </button>

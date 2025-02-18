@@ -119,7 +119,7 @@ const CheckoutForm = ({ setIsOpen, selectedData, refetch }) => {
         onClick={handleSubmit}
         type="submit"
         disabled={!stripe}
-        className="btn btn-error text-white w-full"
+        className="btn btn-error text-white w-full bg-primary"
       >
         {` Pay  ${selectedData.employee_salary}৳`}
       </button>

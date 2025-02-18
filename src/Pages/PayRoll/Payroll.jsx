@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Headline from "../../Shared/Headline";
 import UseAuth from "../../Hooks/UseAuth";
 import { useQuery } from "@tanstack/react-query";
@@ -12,6 +12,29 @@ const Payroll = () => {
   const axiosSecure = UseAxiosSecure();
   const [tableView, setTableView] = useState(true);
   const [cardView, setCardView] = useState(false);
+  // making card view anabled after1236px
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1200) {
+        setTableView(false);
+        setCardView(true);
+      } else {
+        setTableView(true);
+        setCardView(false);
+      }
+    };
+
+    // Attach the event listener
+    window.addEventListener("resize", handleResize);
+
+    // Call once to set the correct state on mount
+    handleResize();
+
+    // Cleanup the event listener on unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  
+  
   // getting payment Data
 
   const { data: paymentData = [], refetch } = useQuery({
@@ -43,8 +66,8 @@ const Payroll = () => {
         </Helmet>
       </header>
       {/* grid & card btn */}
-      <section
-        data-aos="fade-right"
+      {/* <section
+      
         className="flex justify-center gap-2 mb-7 md:mb-10"
       >
         <button
@@ -59,11 +82,11 @@ const Payroll = () => {
         >
           Card View
         </button>
-      </section>
+      </section> */}
 
       {tableView && (
         <section>
-          <div className="overflow-x-auto bg-muted-red bg-opacity-25 rounded-xl p-6">
+          <div className="overflow-x-auto bg-secondary bg-opacity-25 rounded-xl p-6">
             <table className="table">
               {/* head */}
               <thead>
@@ -93,7 +116,7 @@ const Payroll = () => {
         </section>
       )}
       {cardView && (
-        <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <section className="grid grid-cols-1 md:grid-cols-2  gap-6">
           {paymentData.map((cardData, index) => (
             <PayrollCard
               key={cardData._id}

@@ -39,7 +39,7 @@ const AllEmployeeListModal = ({ refetch, isOpen, setIsOpen, selectedData }) => {
   };
   return (
     <dialog open={isOpen} className="modal">
-      <div className="modal-box bg-muted-green">
+      <div className="modal-box ">
         <form
           onSubmit={handleUpdate}
           className="card-body   rounded-2xl w-full mx-auto grid grid-cols-1 "
@@ -62,7 +62,7 @@ const AllEmployeeListModal = ({ refetch, isOpen, setIsOpen, selectedData }) => {
           </div>
 
           <div className="form-control mt-4 ">
-            <button className="input input-bordered bg-secondary border border-secondary hover:bg-secondary hover:border-muted-green hover:text-color-text transition ease-in-out duration-300 font-medium text-lg md:text-xl text-white">
+            <button className="input input-bordered bg-primary border border-primary hover:bg-primary hover:bg-opacity-80 hover:border-primary hover:text-color-text transition ease-in-out duration-300 font-medium text-lg md:text-xl text-white">
               Update Salary
             </button>
           </div>
@@ -72,7 +72,7 @@ const AllEmployeeListModal = ({ refetch, isOpen, setIsOpen, selectedData }) => {
             {/* if there is a button in form, it will close the modal */}
             <button
               onClick={() => setIsOpen(false)}
-              className="btn input input-bordered bg-secondary border border-secondary hover:bg-secondary hover:border-muted-green hover:text-color-text transition ease-in-out duration-300 font-medium text-lg md:text-xl text-white"
+              className="btn input input-bordered bg-primary border border-primary hover:bg-secondary hover:border-muted-green hover:text-color-text transition ease-in-out duration-300 font-medium text-lg md:text-xl text-white"
             >
               Close
             </button>

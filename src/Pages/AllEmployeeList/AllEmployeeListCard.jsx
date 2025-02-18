@@ -102,16 +102,16 @@ const AllEmployeeListCard = ({ index, user, refetch }) => {
           <button
             disabled={role === "hr" ? true : false}
             onClick={() => handleMakeHr(_id)}
-            className="btn btn-error bg-primary"
+            className="btn btn-error bg-primary text-white"
           >
             Make HR
           </button>
           <button
             disabled={isFired}
             onClick={() => handleFire(_id)}
-            className="btn btn-error bg-primary"
+            className="btn btn-error bg-primary text-white"
           >
-            Fire
+            {isFired?"Fired":"Fire"}
           </button>
         </div>
       </div>
