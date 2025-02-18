@@ -38,7 +38,7 @@ const MessageCard = ({ message, refetch,index }) => {
     }
   };
   return (
-    <div data-aos="fade-right"
+    <div 
       key={message._id}
       className={`p-6 rounded-lg border shadow-md hover:shadow-lg transition duration-300  ease-in-out bg-muted-green bg-opacity-25`}
     >

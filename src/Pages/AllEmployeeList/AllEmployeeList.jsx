@@ -32,7 +32,7 @@ const AllEmployeeList = () => {
         <div className="overflow-x-auto bg-muted-red rounded-xl p-6 bg-opacity-25">
           <table className="table">
             {/* head */}
-            <thead data-aos="fade-right">
+            <thead data-aos="">
               <tr className="text-base md:text-lg text-color-text">
                 <th>#</th>
                 <th>Employee</th>
@@ -42,7 +42,7 @@ const AllEmployeeList = () => {
                 <th>Fire</th>
               </tr>
             </thead>
-            <tbody data-aos="fade-left">
+            <tbody >
               {/* row 1 */}
 
               {allUser.map((user, index) => (

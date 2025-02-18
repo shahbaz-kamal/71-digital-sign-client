@@ -73,7 +73,7 @@ const Payroll = () => {
                   <th>Month</th>
                   <th>Year</th>
                   <th>Requested By</th>
-                  <th>Payment Date & Time</th>
+                  <th>Time</th>
                   <th>Action</th>
                 </tr>
               </thead>

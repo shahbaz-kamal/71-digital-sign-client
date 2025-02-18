@@ -13,7 +13,7 @@ import UseRole from "../Hooks/UseRole";
 import { usePaymentContext } from "../LayOuts/DashboardLayOut";
 
 const NavbarDashboard = () => {
-  const { refreshedPaymentRequestData, refreshedMessageData } =
+  const { refreshedPaymentRequestData, refreshedMessageData,handleShowDashNav,handleHideDashNav,setShowDashboardNav,showDashboardNav } =
     usePaymentContext();
 
   // messageData
@@ -330,15 +330,8 @@ const NavbarDashboard = () => {
       <div className=" ">
         <nav className="flex w-full md:w-10/12 mx-auto items-center justify-between px-2 md:px-0">
           {/* logo */}
-          <div className="flex items-center gap-3">
-            <div className="w-12 md:w-14 ">
-              <img className="w-full h-full object-cover" src={logo2} alt="" />
-            </div>
-            <h3 className="font-bold text-white text-3xl uppercase hidden md:inline-flex">
-              71 Digital Sign
-            </h3>
-          </div>
-          {/* navbar ends */}
+         {/* mavbarstarts  */}
+        {/* navbar center */}
           <div className="flex items-center ">
             {/* navitems */}
             <ul className="hidden lg:flex items-center  gap-4 mr-10">
@@ -384,17 +377,17 @@ const NavbarDashboard = () => {
                 Log Out
               </button>
             )}
-            <div className="text-black lg:hidden ml-4 flex">
-              {showMobileNavItems ? (
-                <span onClick={handleHideNav}>
+            {/* <div className="text-black  ml-4 flex">
+              {showDashboardNav ? (
+                <span onClick={handleHideDashNav}>
                   <RxCross1 size={22} />
                 </span>
               ) : (
-                <span onClick={handleShowNav}>
+                <span onClick={handleShowDashNav}>
                   <CiMenuFries size={22} />
                 </span>
               )}
-            </div>
+            </div> */}
           </div>
           {/* login button */}
           {/* Mobile Section menu section */}

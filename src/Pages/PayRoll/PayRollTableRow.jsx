@@ -56,7 +56,7 @@ const PayRollTableRow = ({ index, singleData, refetch }) => {
             </div>
           </div>
         </td>
-        <td>{month}</td>
+        <td>{month.slice(0,3)}</td>
         <td>{year}</td>
         <td>
           <div className="flex items-center gap-3">
@@ -76,7 +76,7 @@ const PayRollTableRow = ({ index, singleData, refetch }) => {
             </div>
           </div>
         </td>
-        <td>{singleData?.paymentDate && format(new Date(singleData?.paymentDate), "PPpp")}</td>
+        <td>{singleData?.paymentDate && format(new Date(singleData?.paymentDate), "PP")}</td>
         <th>
           <button
             onClick={handlePayButton}

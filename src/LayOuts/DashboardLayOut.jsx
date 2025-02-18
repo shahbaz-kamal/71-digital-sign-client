@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import NavbarDashboard from "../Shared/NavbarDashboard";
 import { Outlet } from "react-router-dom";
 import Footer from "../Shared/Footer";
@@ -10,7 +10,34 @@ const PaymentContext = createContext();
 
 const DashboardLayOut = () => {
   // functions for getting payment request data in the navbar as well as inside
+  const [showDashboardNav, setShowDashboardNav] = useState(false);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setShowDashboardNav(true); // Show for medium (md) and larger screens
+      } else {
+        setShowDashboardNav(false); // Hide for smaller screens
+      }
+    };
+
+    // Call on mount to set the initial state
+    handleResize();
+
+    // Listen for window resize
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const handleHideDashNav = () => {
+    setShowDashboardNav(false);
+  };
+  const handleShowDashNav = () => {
+    setShowDashboardNav(true);
+  };
   const { user } = UseAuth();
   const axiosSecure = UseAxiosSecure();
   const { data: paymentRequestData = [], refetch: refetchNavbar } = useQuery({
@@ -40,17 +67,33 @@ const DashboardLayOut = () => {
     refetchNavbar,
     refreshedMessageData,
     refetchMessage,
+    handleShowDashNav,
+    handleHideDashNav,
+    setShowDashboardNav,
+    showDashboardNav,
   };
   return (
     <PaymentContext.Provider value={info}>
       <>
         <div className="flex w-full mx gap-6">
-          <section className="min-h-screen w-20 md:w-80 bg-secondary bg-opacity-60">
+          <section
+            className={`${
+              showDashboardNav
+                ? "min-h-screen  w-80 bg-secondary bg-opacity-60 fixed z-10 "
+                : "min-h-screen  w-20 bg-secondary bg-opacity-60 fixed z-10"
+            }`}
+          >
             <Sidebar></Sidebar>
           </section>
           {/* right div */}
-          <div className="flex flex-col flex-1 ">
-            <section className=" bg-secondary bg-opacity-60 ">
+          <div
+            className={`${
+              showDashboardNav
+                ? "flex flex-col flex-1 ml-80"
+                : "flex flex-col flex-1 ml-20"
+            } `}
+          >
+            <section className=" bg-yellow-400 bg-opacity-60 fixed w-full">
               <NavbarDashboard></NavbarDashboard>
             </section>
             <section className=" mx-auto pt-28 space-y-7 md:space-y-10">
