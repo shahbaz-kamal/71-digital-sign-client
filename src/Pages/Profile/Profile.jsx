@@ -13,20 +13,22 @@ const Profile = () => {
     setIsOpen(true);
   };
   return (
-    <div className="flex flex-col items-center ">
+    <div className="flex flex-col items-center min-h-screen">
       {/* Cover Photo */}
       <Helmet>
         <title> User Profile || 71 Digital SIgn</title>
       </Helmet>
-      <div className="w-full lg:w-[70%] relative rounded-lg">
-        <img data-aos="fade-right"
+      <div className="w-full lg:w-[70%] xl:w-[80%] relative rounded-lg">
+        <img
+        
           src={covorPhoto}
           alt="Cover"
           className="w-full h-48 md:h-64 object-cover rounded-lg"
         />
         <div className="absolute bottom-[-50px] left-1/2 transform -translate-x-1/2">
           {/* Profile Photo */}
-          <img data-aos="fade-left"
+          <img
+           
             src={userData?.profilePhoto || "https://via.placeholder.com/150"}
             alt={userData?.name || "User"}
             className="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-background object-cover"
@@ -35,7 +37,7 @@ const Profile = () => {
       </div>
 
       {/* User Info */}
-      <div data-aos="fade-right" className="mt-16 text-center">
+      <div  className="mt-16 text-center">
         <h1 className="text-xl md:text-2xl font-bold text-color-text">
           {userData?.name || "Name not available"}
         </h1>
@@ -65,7 +67,7 @@ const Profile = () => {
       </div>
 
       {/* Additional Info */}
-      <div data-aos="fade-left" className="mt-6 bg-light-accent shadow-md rounded-lg p-4 w-full md:w-3/4 lg:w-1/2">
+      <div className="mt-6 bg-secondary bg-opacity-25 shadow-md rounded-lg p-4 w-full md:w-3/4 lg:w-1/2">
         <h2 className="text-lg font-bold text-color-text mb-4">User Details</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
@@ -94,10 +96,10 @@ const Profile = () => {
       </div>
 
       {/* Update Profile Button */}
-      <div  className="mt-6">
+      <div className="mt-6 pb-6">
         <button
           onClick={handleClick}
-          className="px-6 py-2 rounded-lg bg-secondary text-background font-semibold shadow-md hover:bg-muted-green hover:text-black transition-all"
+          className="px-6 py-2 btn btn-error rounded-lg bg-primary  font-semibold shadow-md   transition-all text-white"
         >
           Update Profile
         </button>

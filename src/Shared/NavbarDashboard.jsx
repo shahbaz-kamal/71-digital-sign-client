@@ -331,12 +331,13 @@ const NavbarDashboard = () => {
         <nav className="flex w-full md:w-10/12 mx-auto items-center justify-between px-2 md:px-0 ">
           {/* logo */}
          {/* mavbarstarts  */}
+
         {/* navbar center */}
           <div className="flex items-center ">
             {/* navitems */}
-            <ul className="hidden lg:flex items-center  gap-4 mr-10">
+            {/* <ul className="hidden lg:flex items-center  gap-4 mr-10">
               {links}
-            </ul>
+            </ul> */}
 
             {!(user && user?.email) ? (
               <Link to={"/login"}>
