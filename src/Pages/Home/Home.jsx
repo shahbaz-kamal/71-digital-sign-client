@@ -7,6 +7,7 @@ import { FaQ } from "react-icons/fa6";
 import FAQ from "./FAQ";
 import { Helmet } from "react-helmet";
 import FeaturedWork from "./FeaturedWork";
+import WhyChoseUs from "./WhyChoseUs";
 
 const Home = () => {
   return (
@@ -29,6 +30,7 @@ const Home = () => {
       <section>
         <Process></Process>
       </section>
+      <section><WhyChoseUs></WhyChoseUs></section>
       <section>
         <FAQ></FAQ>
       </section>
