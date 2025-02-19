@@ -8,6 +8,7 @@ import FAQ from "./FAQ";
 import { Helmet } from "react-helmet";
 import FeaturedWork from "./FeaturedWork";
 import WhyChoseUs from "./WhyChoseUs";
+import NewsLetter from "./NewsLetter";
 
 const Home = () => {
   return (
@@ -34,6 +35,7 @@ const Home = () => {
       <section>
         <FAQ></FAQ>
       </section>
+      <section><NewsLetter></NewsLetter></section>
     </div>
   );
 };
