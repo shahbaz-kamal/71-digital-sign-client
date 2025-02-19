@@ -105,7 +105,7 @@ const AllEmployeeListTableRow = ({ index, user, refetch }) => {
               onClick={() => {
                 handleMakeHr(_id);
               }}
-              className="btn btn-error bg-primary"
+              className="btn btn-error bg-primary text-white"
             >
               Make HR
             </button>
