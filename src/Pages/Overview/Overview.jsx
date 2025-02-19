@@ -11,6 +11,8 @@ import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import { GrServices } from "react-icons/gr";
 import { MdPercent } from "react-icons/md";
 import { TiContacts } from "react-icons/ti";
+import { PaymentElement } from "@stripe/react-stripe-js";
+import OverViewChart from "./overViewChart";
 
 const Overview = () => {
   const axiosSecure = UseAxiosSecure();
@@ -43,6 +45,10 @@ const { data: contactsData = [] } = useQuery({
       return res.data;
     },
   });
+// getting payment data for chart
+
+
+
   if (!userData && !services) {
     return <Loading></Loading>;
   }
@@ -55,7 +61,7 @@ const { data: contactsData = [] } = useQuery({
         ></Headline>
       </header>
       {/* top row */}
-      <section className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <section className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
         {/* welcome div */}
         <div className="col-span-1 p-6 flex flex-col-reverse xl:flex-row bg-secondary bg-opacity-25 rounded-md xl:justify-between justify-center items-center xl:items-start">
           <div className="flex flex-col h-full">
@@ -145,6 +151,11 @@ const { data: contactsData = [] } = useQuery({
           </div>
         </div>
       </section>
+      {/* second row */}
+<section>
+    {/* chart starts here */}
+    <OverViewChart></OverViewChart>
+</section>
     </div>
   );
 };
