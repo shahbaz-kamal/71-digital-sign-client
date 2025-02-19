@@ -127,7 +127,7 @@ const ContactUs = () => {
             <div className="">
               <button
                 type="submit"
-                className="btn btn-primary bg-secondary border border-secondary hover:bg-muted-green hover:border-muted-green hover:text-color-text transition ease-in-out duration-300 font-medium text-lg md:text-xl text-white"
+                className="btn btn-error bg-primary border border-primary   transition ease-in-out duration-300 font-medium text-lg md:text-xl text-white"
               >
                 Send Us Message
               </button>

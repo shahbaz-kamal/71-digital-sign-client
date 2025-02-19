@@ -119,7 +119,7 @@ const WorkSheet = () => {
           <label className="label">
             <span className="label-text text-color-text">Add Task</span>
           </label>
-          <button className="input input-bordered bg-secondary border border-secondary hover:bg-muted-green hover:border-muted-green hover:text-color-text transition ease-in-out duration-300 font-medium text-lg md:text-xl text-white">
+          <button className="btn btn-error input input-bordered bg-primary border border-primary  transition ease-in-out duration-300 font-medium text-lg md:text-xl text-white">
             Add Work
           </button>
         </div>

@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 const PortfolioCard = ({ data }) => {
   const { title, description, image, date, client } = data;
   return (
-    <div data-aos='fade-right' className="card bg-muted-green bg-opacity-25 shadow-xl">
+    <div
+      data-aos="fade-right"
+      className="card bg-white  shadow-xl hover:scale-110"
+    >
       <figure className="px-10 pt-10 w-full h-[300px]">
         <img
           src={image}
@@ -28,7 +31,7 @@ const PortfolioCard = ({ data }) => {
         </p>
         <div className="card-actions">
           <Link to={"/contact-us"}>
-            <button className="btn btn-primary bg-secondary border border-secondary hover:bg-muted-green hover:border-muted-green hover:text-color-text transition ease-in-out duration-300">
+            <button className="btn font-bold text-base md:text-lg btn-error bg-primary border border-primary text-white transition ease-in-out duration-300">
               Order Now
             </button>
           </Link>

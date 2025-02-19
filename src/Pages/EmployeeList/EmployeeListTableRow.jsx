@@ -112,7 +112,7 @@ const EmployeeListTableRow = ({ singleEmployee, index, refetch }) => {
         <td className="text-center text-color-text text-sm md:text-base">
           <button
             onClick={handlePay}
-            className="py-1 px-3 rounded-md bg-red-500 border border-primary hover:bg-primary  transition ease-in-out duration-300 hover:text-white"
+            className="btn btn-error text-white rounded-md bg-primary border border-primary   transition ease-in-out duration-300"
           >
             Pay
           </button>
@@ -120,7 +120,7 @@ const EmployeeListTableRow = ({ singleEmployee, index, refetch }) => {
         <td className="text-center text-color-text text-sm md:text-base">
           <Link to={`/dashboard/details/${email}`}>
        
-            <button className="py-1 px-3 rounded-md bg-secondary border border-secondary hover:bg-muted-green hover:border-muted-green hover:text-color-text transition ease-in-out duration-300">
+            <button className="btn btn-error text-white rounded-md bg-primary border border-primary   transition ease-in-out duration-300">
               Details
             </button>
           </Link>
