@@ -17,7 +17,7 @@ const Process = () => {
         {/* 1st process */}
         <div
           data-aos="fade-right"
-          className="flex flex-col bg-muted-green bg-opacity-25 p-6 rounded-xl"
+          className="flex flex-col bg-white  p-6 rounded-md"
         >
           <div className="rounded-full flex justify-center text-secondary mb-2">
             <FaCodePullRequest size={25} />
@@ -36,7 +36,7 @@ const Process = () => {
         {/* 2nd process */}
         <div
           data-aos="fade-right"
-          className="flex flex-col bg-muted-green bg-opacity-25 p-6 rounded-xl"
+          className="flex flex-col bg-white  p-6 rounded-md"
         >
           <div className="rounded-full flex justify-center text-secondary mb-2">
             <MdDashboardCustomize size={25} />
@@ -54,7 +54,7 @@ const Process = () => {
         {/* 3rd process */}
         <div
           data-aos="fade-left"
-          className="flex flex-col bg-muted-green bg-opacity-25 p-6 rounded-xl"
+          className="flex flex-col bg-white  p-6 rounded-md"
         >
           <div className="rounded-full flex justify-center text-secondary mb-2">
             <MdLocalPrintshop size={25} />
@@ -72,7 +72,7 @@ const Process = () => {
         {/* 4th process */}
         <div
           data-aos="fade-left"
-          className="flex flex-col bg-muted-green bg-opacity-25 p-6 rounded-xl"
+          className="flex flex-col bg-white  p-6 rounded-md"
         >
           <div className="rounded-full flex justify-center text-secondary mb-2">
             <TbTruckDelivery size={25} />

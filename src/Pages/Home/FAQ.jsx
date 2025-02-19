@@ -13,7 +13,7 @@ const FAQ = () => {
       <section className="space-y-4 ">
         <div
           data-aos="fade-left"
-          className="collapse collapse-plus bg-muted-green bg-opacity-25"
+          className="collapse collapse-plus bg-white"
         >
           <input type="radio" name="my-accordion-3" defaultChecked />
           <div className="collapse-title text-xl font-medium text-color-text">
@@ -31,7 +31,7 @@ const FAQ = () => {
 
         <div
           data-aos="fade-right"
-          className="collapse collapse-plus bg-muted-green bg-opacity-25"
+          className="collapse collapse-plus bg-white"
         >
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium text-color-text">
@@ -49,7 +49,7 @@ const FAQ = () => {
 
         <div
           data-aos="fade-left"
-          className="collapse collapse-plus bg-muted-green bg-opacity-25"
+          className="collapse collapse-plus bg-white "
         >
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium text-color-text">
@@ -66,7 +66,7 @@ const FAQ = () => {
         </div>
         <div
           data-aos="fade-right"
-          className="collapse collapse-plus bg-muted-green bg-opacity-25"
+          className="collapse collapse-plus bg-white "
         >
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium text-color-text">

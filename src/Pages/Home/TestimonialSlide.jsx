@@ -5,7 +5,7 @@ const TestimonialSlide = ({ testimonialData }) => {
   const { ratings, image, testimonial, designation, name } = testimonialData;
 
   return (
-    <div className="p-4 bg-muted-green rounded-lg bg-opacity-25">
+    <div className="p-4 bg-white rounded-md bg-opacity-25 hover:scale-105 duration-300 transition ease-in-out">
       <p data-aos="fade-left" className="mb-4">
         ❝{testimonial}❞
       </p>
