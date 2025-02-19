@@ -15,6 +15,7 @@ import { AiOutlineTransaction } from "react-icons/ai";
 import { RxCross1 } from "react-icons/rx";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 import { IoLogOutOutline } from "react-icons/io5";
+import { GrOverview } from "react-icons/gr";
 
 const Sidebar = () => {
   const {
@@ -79,6 +80,25 @@ const Sidebar = () => {
             {/* Custom underline */}
             {showDashboardNav &&   <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>}
           
+          </li>
+        </NavLink>
+        <NavLink
+          to={"/dashboard/overview"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold text-xl md:text-lg"
+              : "text-black text-xl md:text-lg"
+          }
+        >
+          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out flex items-center justify-center">
+            <span className="mr-2">
+              <GrOverview size={22}/>
+            </span>{" "}
+            <span className={`${showDashboardNav ? "block" : "hidden"}`}>
+            Overview
+            </span>
+            {/* Custom underline */}
+            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
           </li>
         </NavLink>
         <NavLink
@@ -156,10 +176,29 @@ const Sidebar = () => {
         >
           <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out flex items-center justify-center">
             <span className="mr-2">
-              <CiHome />
+              <CiHome size={22}/>
             </span>{" "}
             <span className={`${showDashboardNav ? "block" : "hidden"}`}>
               Home
+            </span>
+            {/* Custom underline */}
+            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
+          </li>
+        </NavLink>
+        <NavLink
+          to={"/dashboard/overview"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold text-xl md:text-lg"
+              : "text-black text-xl md:text-lg"
+          }
+        >
+          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out flex items-center justify-center">
+            <span className="mr-2">
+              <GrOverview size={22}/>
+            </span>{" "}
+            <span className={`${showDashboardNav ? "block" : "hidden"}`}>
+            Overview
             </span>
             {/* Custom underline */}
             <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
@@ -176,7 +215,7 @@ const Sidebar = () => {
           <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out flex items-center justify-center">
             <span className="mr-2">
               {" "}
-              <FaRegUser />
+              <FaRegUser size={22}/>
             </span>{" "}
             <span className={`${showDashboardNav ? "block" : "hidden"}`}>
               Profile
@@ -213,7 +252,7 @@ const Sidebar = () => {
         >
           <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out flex items-center justify-center">
             <span className="mr-2">
-              <GiProgression />{" "}
+              <GiProgression size={22}/>{" "}
             </span>{" "}
             <span className={`${showDashboardNav ? "block" : "hidden"}`}>
               Progress
@@ -231,7 +270,7 @@ const Sidebar = () => {
         >
           <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out flex items-center justify-center">
             <span className="mr-2">
-              <LuMessageSquareMore />
+              <LuMessageSquareMore size={22}/>
             </span>{" "}
             <span className={`${showDashboardNav ? "block" : "hidden"}`}>
               Messages
@@ -260,13 +299,32 @@ const Sidebar = () => {
         >
           <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out flex items-center justify-center">
             <span className="mr-2">
-              <CiHome />
+              <CiHome size={22}/>
             </span>
             <span className={`${showDashboardNav ? "block" : "hidden"}`}>
               Home
             </span>
             {/* Custom underline */}
             {showDashboardNav &&   <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>}
+          </li>
+        </NavLink>
+        <NavLink
+          to={"/dashboard/overview"}
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-semibold text-xl md:text-lg"
+              : "text-black text-xl md:text-lg"
+          }
+        >
+          <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out flex items-center justify-center">
+            <span className="mr-2">
+              <GrOverview size={22}/>
+            </span>{" "}
+            <span className={`${showDashboardNav ? "block" : "hidden"}`}>
+            Overview
+            </span>
+            {/* Custom underline */}
+            <span className="absolute left-1/2 bottom-0 w-1/2 h-[3px] bg-primary transform -translate-x-1/2 hidden group-hover:block"></span>
           </li>
         </NavLink>
         <NavLink
@@ -280,7 +338,7 @@ const Sidebar = () => {
           <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out flex items-center justify-center">
             <span className="mr-2">
               {" "}
-              <FaRegUser />
+              <FaRegUser size={22}/>
             </span>{" "}
             <span className={`${showDashboardNav ? "block" : "hidden"}`}>
               Profile
@@ -318,7 +376,7 @@ const Sidebar = () => {
         >
           <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out flex items-center">
             <span className="mr-2">
-              <TbCoinTaka />
+              <TbCoinTaka size={22}/>
             </span>{" "}
             <span className={`${showDashboardNav ? "block" : "hidden"}`}>
               Payroll
@@ -345,7 +403,7 @@ const Sidebar = () => {
           <li className="group relative hover:text-primary hover:font-semibold transition duration-300 ease-in-out flex items-center justify-center">
            
           <span className="mr-2">
-              <LuMessageSquareMore />
+              <LuMessageSquareMore size={22}/>
             </span>{" "} <span className={`${showDashboardNav ? "block" : "hidden"}`}>
               Messages
               {refreshedMessageData.length > 0 ? (

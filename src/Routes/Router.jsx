@@ -22,6 +22,7 @@ import Details from "../Pages/EmployeeList/Details";
 import PrivateCommon from "./PrivateCommon";
 import Messages from "../Pages/Messages/Messages";
 import Error from "../Pages/Error/Error";
+import Overview from "../Pages/Overview/Overview";
 
 export const router = createBrowserRouter([
   {
@@ -52,6 +53,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Profile></Profile>{" "}
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "overview",
+        element: (
+          <PrivateRoute>
+         <Overview></Overview>
           </PrivateRoute>
         ),
       },
