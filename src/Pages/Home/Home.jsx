@@ -6,6 +6,7 @@ import Process from "./Process";
 import { FaQ } from "react-icons/fa6";
 import FAQ from "./FAQ";
 import { Helmet } from "react-helmet";
+import FeaturedWork from "./FeaturedWork";
 
 const Home = () => {
   return (
@@ -18,6 +19,9 @@ const Home = () => {
       </section>
       <section>
         <Services></Services>
+      </section>
+      <section>
+        <FeaturedWork></FeaturedWork>
       </section>
       <section>
         <Testimonial></Testimonial>

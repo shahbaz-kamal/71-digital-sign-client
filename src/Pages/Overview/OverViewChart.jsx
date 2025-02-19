@@ -58,7 +58,7 @@ const OverViewChart = () => {
     return dateB.month - dateA.month; // Sort by month descending
   });
 
-  const displayedData = showAll ? sortedData : sortedData.slice(0, 5);
+  const displayedData = showAll ? sortedData : sortedData.slice(0, 6);
   const formatToK = (num) =>
     num >= 1000 ? `৳ ${(num / 1000).toFixed(0)}K` : num;
 
@@ -97,7 +97,7 @@ const OverViewChart = () => {
         onClick={() => setShowAll(!showAll)}
         className="mt-4 px-4 py-2 bg-primary text-white font-bold rounded-md"
       >
-        {showAll ? "Show Recent 5 Months" : "View All Data"}
+        {showAll ? "Show Recent 6 Months" : "View All Data"}
       </button>
     </div>
   );
