@@ -75,34 +75,34 @@ const DashboardLayOut = () => {
   return (
     <PaymentContext.Provider value={info}>
       <>
-        <div className="flex w-full mx gap-6">
-          <section
+        <section className="flex w-full mx-auto gap-6">
+          <div
             className={`${
               showDashboardNav
-                ? "min-h-screen  w-80 bg-secondary bg-opacity-70 fixed z-10 "
-                : "min-h-screen  w-20 bg-secondary bg-opacity-70 fixed z-10"
+                ? "min-h-screen  w-80 bg-secondary bg-opacity-70  fixed "
+                : "min-h-screen  w-20 bg-secondary bg-opacity-70  fixed"
             }`}
           >
             <Sidebar></Sidebar>
-          </section>
+          </div>
           {/* right div */}
           <div
             className={`${
               showDashboardNav
-                ? "flex flex-col flex-1 ml-80"
-                : "flex flex-col flex-1 ml-20"
+                ? " w-full  pl-[350px]"
+                : " w-full pl-24"
             } `}
           >
-            <section className=" bg-secondary bg-opacity-70 fixed w-full h-20 backdrop-blur-xl flex flex-col justify-center z-10">
+            {/* <section className="  bg-opacity-70 fixed w-11/12 h-20 z-10 bg-secondary overflow-hidden  backdrop-blur-xl flex items-center justify-center ">
               <NavbarDashboard></NavbarDashboard>
-            </section>
-            <section className="w-11/12  mx-auto pt-28 space-y-7 md:space-y-10 ">
+            </section> */}
+            <section className="w-11/12 mx-auto pt-10 space-y-7 md:space-y-10 ">
               <Outlet></Outlet>
             </section>
           </div>
-        </div>
+        </section>
 
-        <section>{/* <Footer></Footer> */}</section>
+      
       </>
     </PaymentContext.Provider>
   );

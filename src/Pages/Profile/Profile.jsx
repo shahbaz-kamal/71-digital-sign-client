@@ -13,7 +13,7 @@ const Profile = () => {
     setIsOpen(true);
   };
   return (
-    <div className="flex flex-col items-center min-h-screen">
+    <div className="flex flex-col items-center min-h-screen ">
       {/* Cover Photo */}
       <Helmet>
         <title> User Profile || 71 Digital SIgn</title>

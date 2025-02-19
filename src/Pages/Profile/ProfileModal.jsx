@@ -39,7 +39,7 @@ const ProfileModal = ({ isOpen, setIsOpen, userData, refetch }) => {
   };
   return (
     <dialog open={isOpen} className="modal ">
-      <div className="modal-box  bg-light-accent ">
+      <div className="modal-box   ">
         <form
           onSubmit={handleUpdateProfile}
           className="card-body   rounded-2xl w-full mx-auto grid grid-cols-1 "
@@ -113,14 +113,14 @@ const ProfileModal = ({ isOpen, setIsOpen, userData, refetch }) => {
             />
           </div>
           <div className="form-control mt-4 ">
-            <button className=" btn btn-error text-white">Update</button>
+            <button className=" btn btn-error text-white bg-primary">Update</button>
           </div>
         </form>
         <div className="modal-action">
           <form method="dialog">
             <button
               onClick={() => setIsOpen(false)}
-              className="btn btn-error text-white"
+              className="btn btn-error text-white bg-primary"
             >
               Close
             </button>

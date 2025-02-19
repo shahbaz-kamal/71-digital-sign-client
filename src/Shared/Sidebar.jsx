@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo2 from "../assets/logo-200.png";
 import { NavLink } from "react-router-dom";
 import UseRole from "../Hooks/UseRole";
@@ -13,6 +13,8 @@ import { LuMessageSquareMore } from "react-icons/lu";
 import { SlNotebook } from "react-icons/sl";
 import { AiOutlineTransaction } from "react-icons/ai";
 import { RxCross1 } from "react-icons/rx";
+import UseAxiosSecure from "../Hooks/UseAxiosSecure";
+import { IoLogOutOutline } from "react-icons/io5";
 
 const Sidebar = () => {
   const {
@@ -23,8 +25,36 @@ const Sidebar = () => {
     setShowDashboardNav,
     showDashboardNav,
   } = usePaymentContext();
+  const [shhowLogOutBtn, setShowLogOutBtn] = useState(false);
   const { user, logOutUser, userData, setUserData, setLoading } = UseAuth();
-  const [showMobileNavItems, setShowMobileNavItems] = useState(false);
+      
+  const axiosSecure=UseAxiosSecure()
+    const handleLogOut = async () => {
+      
+      
+      // navigate("/");
+      logOutUser().then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Log Out Successfull",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setLoading(false);
+        navigate("/");
+      });
+    };
+
+  const fetchUserData = async (email) => {
+    const res = await axiosSecure.get(`/user/${email}`);
+    setUserData(res.data);
+  };
+  if (user && user?.email) {
+      useEffect(() => {
+        fetchUserData(user?.email);
+      }, [user]);
+    }
   const { role } = UseRole();
   let links = <></>;
   if (role === "employee") {
@@ -332,7 +362,7 @@ const Sidebar = () => {
     );
   }
   return (
-    <div className="pt-2">
+    <div className="pt-2 flex flex-col items-center justify-center">
       {/* logo section */}
       <section className="px-2 py-2 flex items-center justify-center mb-4 h-20">
         {/* top dashboard */}
@@ -362,6 +392,34 @@ const Sidebar = () => {
           </div>
         </div>
       </section>
+      <div className={`flex items-center justify-center  mb-4 ${showDashboardNav?"gap-2":"flex-col gap-2"}`}>
+          {/* User Photo */}
+          {user && user?.email ? (
+            <div
+              onClick={() => setShowLogOutBtn(!shhowLogOutBtn)}
+              className="flex flex-col items-center justify-center w-12 h-12  relative "
+            >
+              {/* Profile Image */}
+              <div className={`${showDashboardNav?"w-12 h-12":"w-10 h-10"}  rounded-full overflow-hidden`}>
+                <img
+                  className="w-full h-full object-cover block mx-auto"
+                  src={userData.profilePhoto}
+                  alt="User Profile"
+                />
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+           {shhowLogOutBtn && (
+              <button
+                onClick={handleLogOut}
+                className={`text-base md:text-lg py-2 border border-primary rounded-xl  hover:bg-primary hover:text-white transition duration-300 ease-in-out font-semibold  ${showDashboardNav?"px-5":"px-2"}`}
+              >
+                {showDashboardNav?"Log Out":<IoLogOutOutline />}
+              </button>
+            )}
+        </div>
       <section className="w-full">
         {/* gap-2 is not applying */}
         <div className="flex flex-col justify-center items-center ">
@@ -369,6 +427,7 @@ const Sidebar = () => {
             {links}
           </ul>
         </div>
+       
       </section>
     </div>
   );
